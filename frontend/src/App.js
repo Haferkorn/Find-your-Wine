@@ -5,6 +5,7 @@ import Header from "./components/header/Header"
 import LoginPage from "./components/pages/LoginPage"
 import Homepage from "./components/pages/Homepage"
 import RecommendationForm from "./components/pages/RecommendationForm"
+import Footer from "./components/footer/Footer"
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
                <RecommendationForm/>
             </Route>
          </Switch>
+         <Footer/>
       </PageLayout>
    )
 }
@@ -29,5 +31,6 @@ function App() {
 export default App
 
 const PageLayout=styled.div`
+   background-color: #FFFCF2;
 
 `
