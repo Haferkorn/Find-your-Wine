@@ -1,7 +1,11 @@
-function RecommendationForm(){
-   return(
-      <div>
+import styled from "styled-components/macro"
 
-      </div>
-   )
-}export default RecommendationForm
+function RecommendationForm() {
+   return
+   <FormWrapper>
+   </FormWrapper>
+}
+export default RecommendationForm
+
+const FormWrapper=styled.div`
+`

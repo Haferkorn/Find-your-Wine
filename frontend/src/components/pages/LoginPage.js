@@ -1,12 +1,8 @@
-import styled from 'styled-components/macro'
+import styled from "styled-components/macro"
 
-function LoginPage(){
-   return(
-      <Wrapper>
+function LoginPage() {
+   return <Wrapper></Wrapper>
+}
+export default LoginPage
 
-
-      </Wrapper>
-   )
-}export default LoginPage
-
-const Wrapper=styled.div``
+const Wrapper = styled.div``

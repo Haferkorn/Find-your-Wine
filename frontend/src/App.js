@@ -1,36 +1,34 @@
 import "./App.css"
 import { Route, Switch } from "react-router"
-import styled from 'styled-components/macro'
+import styled from "styled-components/macro"
 import Header from "./components/header/Header"
 import LoginPage from "./components/pages/LoginPage"
 import Homepage from "./components/pages/Homepage"
 import RecommendationForm from "./components/pages/RecommendationForm"
 import Footer from "./components/footer/Footer"
 
-
 function App() {
    return (
       <PageLayout>
          <Header />
          <Switch>
-            <Route path={'/login'}>
-               <LoginPage/>
+            <Route path={"/login"}>
+               <LoginPage />
             </Route>
             <Route path="/" exact>
-               <Homepage/>
+               <Homepage />
             </Route>
             <Route path="/recommendations">
                <RecommendationForm/>
             </Route>
          </Switch>
-         <Footer/>
+         <Footer />
       </PageLayout>
    )
 }
 
 export default App
 
-const PageLayout=styled.div`
-   background-color: #FFFCF2;
-
+const PageLayout = styled.div`
+   background-color: #fffcf2;
 `
