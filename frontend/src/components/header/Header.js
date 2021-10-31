@@ -1,11 +1,12 @@
 
 import styled from 'styled-components/macro'
 import Navbar from "./Navbar"
+import logo from "./logo.png"
 
 function Header(){
    return(
       <div>
-         <Logo/>
+         <LogoContainer src={logo} alt="Logo"/>
          <Navbar/>
       </div>
 
@@ -13,4 +14,6 @@ function Header(){
 }
 export default Header
 
-const Logo=styled.img``
+const LogoContainer=styled.img`
+width: 100%
+`
