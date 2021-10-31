@@ -46,7 +46,6 @@ const ButtonWrapper=styled.div`
 const StartButton=styled.button`
    margin-bottom: 40px;
   margin-top: 10px;
-    box-shadow: inset 0px 1px 0px 0px #ffffff;
     background: #E6E1D6;
     border-radius: 6px;
     border: 0px solid #0D1B2A;
@@ -58,6 +57,9 @@ const StartButton=styled.button`
     font-weight: bold;
     padding: 6px 24px;
     text-decoration: none;
-  
+  &:hover {
+      background-color: #607466;
+    color: #E6E1D6;
+    }
   
 `
