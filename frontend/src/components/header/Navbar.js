@@ -3,17 +3,26 @@ import styled from 'styled-components/macro'
 
 function Navbar(){
    return(
-      <Wrapper>
-         <NavLinkStyled to="/" exact>
+      <NavBarContainer>
+         <NavItem to="/" exact>
             Home
-         </NavLinkStyled>
-         <NavLinkStyled to="/login">Login</NavLinkStyled>
-      </Wrapper>
+         </NavItem>
+         <NavItem to="/login">Login</NavItem>
+      </NavBarContainer>
    )
 }export default Navbar
 
-const Wrapper = styled.div``
-
-const NavLinkStyled = styled(NavLink)`
+const NavBarContainer = styled.section`
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  background-color: #996670;
+  
+`
+const NavItem = styled(NavLink)`
+  color: #FFFCF2;
   text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  margin: 30px;
+  
 `

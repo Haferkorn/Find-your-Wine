@@ -5,14 +5,18 @@ import logo from "./logo.png"
 
 function Header(){
    return(
-      <div>
+      <HeaderContainer>
          <LogoContainer src={logo} alt="Logo"/>
          <Navbar/>
-      </div>
+      </HeaderContainer>
 
    )
 }
 export default Header
+
+const HeaderContainer=styled.div`
+background-color: #BB989B;
+`
 
 const LogoContainer=styled.img`
 width: 100%
