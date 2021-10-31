@@ -1,8 +1,15 @@
 import styled from "styled-components/macro"
 import { Player, Controls } from '@lottiefiles/react-lottie-player';
 import WineAnimation from "./wine_animation.json";
+import { useHistory } from "react-router"
 
 function Homepage(){
+
+   const history=useHistory()
+   function handleClick() {
+      history.push("/recommendations")
+   }
+
    return(
       <Wrapper>
          <Heading>Let's find <Emphasis>your</Emphasis> perfect Wine</Heading>
@@ -16,7 +23,7 @@ function Homepage(){
             <Controls visible={false} buttons={['play', 'repeat', 'frame', 'debug']} />
          </Player>
             <ButtonWrapper>
-               <StartButton>Start</StartButton>
+               <StartButton onClick={handleClick}>Start</StartButton>
             </ButtonWrapper>
          </AnimationWrapper>
       </Wrapper>
@@ -48,7 +55,7 @@ const StartButton=styled.button`
   margin-top: 10px;
     background: #E6E1D6;
     border-radius: 6px;
-    border: 0px solid #0D1B2A;
+    border: 0 solid #0D1B2A;
     display: inline-block;
     cursor: pointer;
     color: #0D1B2A;
