@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { NextButton } from "./Step1"
 
-function Step3({ nextStep, handleDataInput }) {
+function Step3B({ nextStep, handleDataInput }) {
    const [context, setContext] = useState({
       region: "",
    })
@@ -19,8 +19,8 @@ function Step3({ nextStep, handleDataInput }) {
    return (
       <form>
          <h2>
-            Step Three: if you had to associate your food with a region, which
-            one would it be?{" "}
+            Step Three: If you had to choose a region where your wine is coming
+            from, which one would it be?{" "}
          </h2>
          <div>
             <input
@@ -89,4 +89,4 @@ function Step3({ nextStep, handleDataInput }) {
       </form>
    )
 }
-export default Step3
+export default Step3B

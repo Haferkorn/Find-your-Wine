@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
 import { NextButton } from "./Step1"
 
-function Step2({ nextStep, handleDataInput }) {
+function Step2B({ nextStep, handleDataInput }) {
    const [context, setContext] = useState({
-      wineStyle: [],
+      wineStyle: "",
    })
 
    const handleChoice = (event) => {
@@ -18,47 +18,47 @@ function Step2({ nextStep, handleDataInput }) {
    const stepNumber = 2
    return (
       <form>
-         <h2>Second Step: What will be your meal</h2>
+         <h2>Second Step: What is your favorite wine style?</h2>
          <div>
             <input
                type="radio"
-               id="redMeat"
+               id="red"
                name="wineStyle"
                value="red"
                onChange={handleChoice}
             />
-            <label htmlFor="redMeat">Red Meat</label>
+            <label htmlFor="red">Red</label>
          </div>
 
          <div>
             <input
                type="radio"
-               id="lightMeat"
+               id="white"
                name="wineStyle"
-               value="red,white"
+               value="white"
                onChange={handleChoice}
             />
-            <label htmlFor="lightMeat">Light meat(Pig, Chicken)</label>
+            <label htmlFor="white">White</label>
          </div>
          <div>
             <input
                type="radio"
-               id="veggy"
+               id="rose"
+               name="wineStyle"
+               value="rose"
+               onChange={handleChoice}
+            />
+            <label htmlFor="rose">Rosé</label>
+         </div>
+         <div>
+            <input
+               type="radio"
+               id="IdK"
                name="wineStyle"
                value="red,white,rose"
                onChange={handleChoice}
             />
-            <label htmlFor="afterDinner">Veggy</label>
-         </div>
-         <div>
-            <input
-               type="radio"
-               id="fish"
-               name="wineStyle"
-               value="white,rose"
-               onChange={handleChoice}
-            />
-            <label htmlFor="fish">Fish</label>
+            <label htmlFor="IdK">I don't know</label>
          </div>
          <NextButton type={"button"} onClick={() => nextStep(stepNumber)}>
             next
@@ -66,4 +66,4 @@ function Step2({ nextStep, handleDataInput }) {
       </form>
    )
 }
-export default Step2
+export default Step2B
