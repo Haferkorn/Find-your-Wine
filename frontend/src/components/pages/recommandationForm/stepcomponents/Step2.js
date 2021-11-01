@@ -11,9 +11,7 @@ function Step2({nextStep,handleDataInput}){
         setContext({[event.target.name]:event.target.value})
     }
 
-
     useEffect(() => {
-
         handleDataInput("wineStyle",context.wineStyle)
     },[context]);
 
