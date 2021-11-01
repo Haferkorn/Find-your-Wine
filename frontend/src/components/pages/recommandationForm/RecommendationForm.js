@@ -8,7 +8,7 @@ function RecommendationForm() {
    let [formStep, setFormStep]=useState(1);
    const[wineConfiguration,setWineConfiguration]=useState({
       occasion:"",
-      wineStyle:"",
+      wineStyle:[],
       region:"",
       alcohol:"",
       taste:""
@@ -27,7 +27,9 @@ function RecommendationForm() {
    <FormWrapper>
       <h2>Let's find your wine</h2>
       <Form>
-         {formStep===1?<Step1 nextStep={nextStep} handleDataInput={handleDataInput}/>:<Step2 nextStep={nextStep} handleDataInput={handleDataInput}/>}
+         {formStep===1?
+             <Step1 nextStep={nextStep} handleDataInput={handleDataInput}/>:
+             <Step2 nextStep={nextStep} handleDataInput={handleDataInput}/>}
       </Form>
    </FormWrapper>
    )
