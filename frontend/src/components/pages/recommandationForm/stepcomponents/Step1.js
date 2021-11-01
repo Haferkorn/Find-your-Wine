@@ -2,17 +2,17 @@ import {useEffect, useState} from "react";
 
 function Step1({nextStep,handleDataInput}){
 
-    const[occasionalContext,setOccasionalContext]=useState({
+    const[context,setContext]=useState({
         occasion:""
     })
 
     const handleChoice=(event)=>{
-        setOccasionalContext({[event.target.name]:event.target.value})
+        setContext({[event.target.name]:event.target.value})
     }
 
     useEffect(() => {
-        handleDataInput("occasion",occasionalContext.occasion)
-    },[occasionalContext]);
+        handleDataInput("occasion",context.occasion)
+    },[context]);
 
 
     const stepNumber=1;
