@@ -24,7 +24,6 @@ function RecommendationForm() {
    const nextStep = (value) => {
       setFormStep(value + 1)
    }
-
    const handleDataInput = (name, value) => {
       setWineConfiguration({ ...wineConfiguration, [name]: value })
    }
