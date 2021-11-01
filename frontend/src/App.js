@@ -19,7 +19,7 @@ function App() {
                <Homepage />
             </Route>
             <Route path="/recommendations">
-               <RecommendationForm/>
+               <RecommendationForm />
             </Route>
          </Switch>
          <Footer />

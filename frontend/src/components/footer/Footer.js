@@ -12,8 +12,8 @@ function Footer() {
 export default Footer
 
 const FooterWrapper = styled.div`
-  position: fixed;
-  bottom: 0;
+   position: fixed;
+   bottom: 0;
    margin-top: 50px;
    width: 100%;
    height: 100px;
