@@ -1,4 +1,4 @@
-function Step2({nextStep}){
+function Step2({nextStep,handleDataInput}){
 
     const stepNumber=2;
     return(

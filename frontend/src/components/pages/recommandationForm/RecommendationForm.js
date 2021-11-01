@@ -18,11 +18,16 @@ function RecommendationForm() {
       setFormStep(value+1);
    }
 
+   const handleDataInput=(name,value)=>{
+      console.log(name,value)
+      setWineConfiguration({...wineConfiguration, [name]: value})
+   }
+
    return(
    <FormWrapper>
       <h2>Let's find your wine</h2>
       <Form>
-         {formStep===1?<Step1 nextStep={nextStep}/>:<Step2 nextStep={nextStep}/>}
+         {formStep===1?<Step1 nextStep={nextStep} handleDataInput={handleDataInput}/>:<Step2 nextStep={nextStep} handleDataInput={handleDataInput}/>}
       </Form>
    </FormWrapper>
    )
