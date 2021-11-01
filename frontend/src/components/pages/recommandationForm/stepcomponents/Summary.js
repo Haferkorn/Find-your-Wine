@@ -1,3 +1,5 @@
+import {NextButton} from "./Step1";
+
 function Summary({wineConfiguration,handleSubmit}){
 
     return(<div>
@@ -19,6 +21,6 @@ function Summary({wineConfiguration,handleSubmit}){
                 {wineConfiguration.alcohol}
             </li>
         </ul>
-        <button onClick={handleSubmit}>Submit</button>
+        <NextButton onClick={handleSubmit}>Submit</NextButton>
     </div>)
 }export default Summary;

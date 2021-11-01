@@ -1,4 +1,5 @@
 import {useEffect, useState} from "react";
+import {NextButton} from "./Step1";
 
 function Step2({nextStep,handleDataInput}){
 
@@ -12,6 +13,7 @@ function Step2({nextStep,handleDataInput}){
 
 
     useEffect(() => {
+
         handleDataInput("wineStyle",context.wineStyle)
     },[context]);
 
@@ -61,7 +63,8 @@ function Step2({nextStep,handleDataInput}){
                 />
                 <label htmlFor="fish">Fish</label>
             </div>
-            <button onClick={()=>nextStep(stepNumber)}>next</button>
+            <NextButton type={"button"} onClick={()=>nextStep(stepNumber)}>next</NextButton>
         </form>
     )
 }export default Step2
+

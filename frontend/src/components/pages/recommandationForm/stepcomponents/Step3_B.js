@@ -1,4 +1,5 @@
 import {useEffect, useState} from "react";
+import {NextButton} from "./Step1";
 
 function Step3_B({nextStep,handleDataInput}){
 
@@ -81,7 +82,7 @@ function Step3_B({nextStep,handleDataInput}){
                 />
                 <label htmlFor="africa">Africa</label>
             </div>
-            <button onClick={()=>nextStep(stepNumber)}>next</button>
+            <NextButton type={"button"} onClick={()=>nextStep(stepNumber)}>next</NextButton>
         </form>
     )
 }export default Step3_B
