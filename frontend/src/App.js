@@ -6,6 +6,7 @@ import LoginPage from "./components/pages/LoginPage"
 import Homepage from "./components/pages/homepage/Homepage"
 import RecommendationForm from "./components/pages/recommandationForm/RecommendationForm"
 import Footer from "./components/footer/Footer"
+import Recommendations from "./components/pages/recommandations/Recommendations";
 
 function App() {
    return (
@@ -18,9 +19,12 @@ function App() {
             <Route path="/" exact>
                <Homepage />
             </Route>
-            <Route path="/recommendations">
+            <Route path="/wineConfiguration">
                <RecommendationForm />
             </Route>
+             <Route path="/recommendations">
+                 <Recommendations/>
+             </Route>
          </Switch>
          <Footer />
       </PageLayout>

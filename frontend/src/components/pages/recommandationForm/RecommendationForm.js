@@ -8,6 +8,7 @@ import Step4 from "./stepcomponents/Step4"
 import Step5 from "./stepcomponents/Step5"
 import { useState } from "react"
 import Summary from "./stepcomponents/Summary"
+import {useHistory} from "react-router";
 
 function RecommendationForm() {
    let [formStep, setFormStep] = useState(1)
@@ -18,6 +19,7 @@ function RecommendationForm() {
       alcohol: "",
       taste: "",
    })
+   const history=useHistory();
 
    const nextStep = (value) => {
       setFormStep(value + 1)
@@ -30,6 +32,7 @@ function RecommendationForm() {
    const handleSubmit = () => {
       //future PostMapping
       console.log("Data send")
+      history.push("/recommendations")
    }
 
    return (

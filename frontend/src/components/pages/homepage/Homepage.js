@@ -6,7 +6,7 @@ import { useHistory } from "react-router"
 function Homepage() {
    const history = useHistory()
    function handleClick() {
-      history.push("/recommendations")
+      history.push("/wineConfiguration")
    }
 
    return (
