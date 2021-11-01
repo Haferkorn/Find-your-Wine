@@ -7,6 +7,7 @@ import Step3_B from "./stepcomponents/Step3_B";
 import Step4 from "./stepcomponents/Step4";
 import Step5 from "./stepcomponents/Step5";
 import {useState} from "react";
+import Summary from "./stepcomponents/Summary";
 
 
 function RecommendationForm() {
@@ -24,8 +25,12 @@ function RecommendationForm() {
    }
 
    const handleDataInput=(name,value)=>{
-      console.log(name,value)
       setWineConfiguration({...wineConfiguration, [name]: value})
+   }
+
+   const handleSubmit=()=>{
+      //futur PostMapping
+      console.log("Data send")
    }
 
    return(
@@ -48,7 +53,7 @@ function RecommendationForm() {
                              <Step4 nextStep={nextStep} handleDataInput={handleDataInput}/>:
                              formStep===5 ?
                                  <Step5 nextStep={nextStep} handleDataInput={handleDataInput}/>:
-             <p>Something went wrong</p>}
+             <Summary wineConfiguration={wineConfiguration} handleSubmit={handleSubmit}/>}
 
       </Form>
    </FormWrapper>
