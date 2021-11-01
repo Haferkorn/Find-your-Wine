@@ -29,13 +29,13 @@ function RecommendationForm() {
    }
 
    const handleSubmit=()=>{
-      //futur PostMapping
+      //future PostMapping
       console.log("Data send")
    }
 
    return(
    <FormWrapper>
-      <h2>Let's find your wine</h2>
+      <MainHeading>Let's find your wine</MainHeading>
       <Form>
          {formStep===1?
              <Step1 nextStep={nextStep} handleDataInput={handleDataInput}/>:
@@ -62,5 +62,17 @@ function RecommendationForm() {
 export default RecommendationForm
 
 const FormWrapper=styled.div`
+   border: 1px solid #CCC5B9;
+   border-radius: 20px;
+   margin: 20px;
+   font-family: "Montserrat",sans-serif;
+   font-size: 15px;
+   background-color: #E6E1D6;
 `
-const Form=styled.section``
+const MainHeading=styled.h2`
+   font-size: 15px;
+   margin: 10px;
+`
+const Form=styled.section`
+margin: 10px;
+`
