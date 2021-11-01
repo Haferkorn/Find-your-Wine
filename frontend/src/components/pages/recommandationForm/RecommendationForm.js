@@ -8,7 +8,7 @@ import Step4 from "./stepcomponents/Step4";
 import Step5 from "./stepcomponents/Step5";
 import {useState} from "react";
 
-@
+
 function RecommendationForm() {
    let [formStep, setFormStep]=useState(1);
    const[wineConfiguration,setWineConfiguration]=useState({
