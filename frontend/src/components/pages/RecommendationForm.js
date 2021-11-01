@@ -1,9 +1,10 @@
 import styled from "styled-components/macro"
 
+
 function RecommendationForm() {
-   return
-   <FormWrapper>
-   </FormWrapper>
+   return(
+   <FormWrapper/>
+   )
 }
 export default RecommendationForm
 
