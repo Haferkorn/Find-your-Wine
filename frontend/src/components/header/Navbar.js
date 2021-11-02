@@ -17,7 +17,7 @@ const NavBarContainer = styled.section`
    display: flex;
    justify-content: center;
    gap: 40px;
-   background-color: #996670;
+   background-color: #8B2635;
 `
 const NavItem = styled(NavLink)`
    color: #fffcf2;
