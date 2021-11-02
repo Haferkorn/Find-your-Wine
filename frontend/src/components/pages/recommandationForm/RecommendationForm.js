@@ -1,18 +1,14 @@
 import styled from "styled-components/macro"
-import Step1 from "./stepcomponents/Step1"
-import Step2 from "./stepcomponents/Step2"
-import Step2B from "./stepcomponents/Step2B"
-import Step3 from "./stepcomponents/Step3"
-import Step3B from "./stepcomponents/Step3B"
-import Step4 from "./stepcomponents/Step4"
-import Step5 from "./stepcomponents/Step5"
+
 import { useState } from "react"
 import Summary from "./stepcomponents/Summary"
 import {useHistory} from "react-router";
+import Step from "./stepcomponents/Step";
+import QuestionData from "./QuestionData.json"
 
 
 function RecommendationForm() {
-   let [formStep, setFormStep] = useState(1)
+   const [questionData,setQuestionData]=useState(QuestionData[0])
    const [wineConfiguration, setWineConfiguration] = useState({
       occasion: "",
       wineStyle: "",
@@ -20,12 +16,19 @@ function RecommendationForm() {
       alcohol: "",
       taste: "",
    })
+
    const history=useHistory();
 
    const nextStep = (value) => {
-      setFormStep(value + 1)
+      if(parseInt(value)!==7){
+         setQuestionData(QuestionData[parseInt(value)])
+      }else{
+         setQuestionData("finished")
+      }
+
    }
    const handleDataInput = (name, value) => {
+      console.log("Received "+name, value)
       setWineConfiguration({ ...wineConfiguration, [name]: value })
    }
 
@@ -39,40 +42,15 @@ function RecommendationForm() {
       <FormWrapper>
          <MainHeading>Let's find your wine</MainHeading>
          <Form>
-
-            {
-               //First Step
-                formStep === 1 ? (
-               <Step1 nextStep={nextStep} handleDataInput={handleDataInput} />
-
-             //Second Step
-            ) : formStep === 2 && wineConfiguration.occasion === "dinner" ? (
-               <Step2 nextStep={nextStep} handleDataInput={handleDataInput} />
-            ) : formStep === 2 && wineConfiguration.occasion === "apero" ? (
-               <Step2B nextStep={nextStep} handleDataInput={handleDataInput} />
-            ) : formStep === 2 &&
-              wineConfiguration.occasion === "afterDinner" ? (
-               <Step2B nextStep={nextStep} handleDataInput={handleDataInput} />
-            ) : formStep === 3 && wineConfiguration.occasion !== "dinner" ? (
-
-             //Third Step
-                <Step3B nextStep={nextStep} handleDataInput={handleDataInput} />
-            ) : formStep === 3 && wineConfiguration.occasion === "dinner" ? (
-               <Step3 nextStep={nextStep} handleDataInput={handleDataInput} />
-            ) : formStep === 4 ? (
-
-             //Fourth Step
-               <Step4 nextStep={nextStep} handleDataInput={handleDataInput} />
-            ) : formStep === 5 ? (
-
-             //Fifth Step
-                <Step5 nextStep={nextStep} handleDataInput={handleDataInput} />
-            ) : (
+            { questionData!=="finished"?
+               <Step toAskData={questionData} handleDataInput={handleDataInput} nextStep={nextStep}/>:
                <Summary
-                  wineConfiguration={wineConfiguration}
-                  handleSubmit={handleSubmit}
+               wineConfiguration={wineConfiguration}
+               handleSubmit={handleSubmit}
                />
-            )}
+            }
+
+
          </Form>
       </FormWrapper>
    )

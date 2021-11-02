@@ -1,4 +1,4 @@
-import { NextButton } from "./Step1"
+import { NextButton } from "./Step"
 
 function Summary({ wineConfiguration, handleSubmit }) {
    return (
