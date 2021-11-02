@@ -10,6 +10,7 @@ import { useState } from "react"
 import Summary from "./stepcomponents/Summary"
 import {useHistory} from "react-router";
 
+
 function RecommendationForm() {
    let [formStep, setFormStep] = useState(1)
    const [wineConfiguration, setWineConfiguration] = useState({
@@ -38,8 +39,13 @@ function RecommendationForm() {
       <FormWrapper>
          <MainHeading>Let's find your wine</MainHeading>
          <Form>
-            {formStep === 1 ? (
+
+            {
+               //First Step
+                formStep === 1 ? (
                <Step1 nextStep={nextStep} handleDataInput={handleDataInput} />
+
+             //Second Step
             ) : formStep === 2 && wineConfiguration.occasion === "dinner" ? (
                <Step2 nextStep={nextStep} handleDataInput={handleDataInput} />
             ) : formStep === 2 && wineConfiguration.occasion === "apero" ? (
@@ -48,13 +54,19 @@ function RecommendationForm() {
               wineConfiguration.occasion === "afterDinner" ? (
                <Step2B nextStep={nextStep} handleDataInput={handleDataInput} />
             ) : formStep === 3 && wineConfiguration.occasion !== "dinner" ? (
-               <Step3B nextStep={nextStep} handleDataInput={handleDataInput} />
+
+             //Third Step
+                <Step3B nextStep={nextStep} handleDataInput={handleDataInput} />
             ) : formStep === 3 && wineConfiguration.occasion === "dinner" ? (
                <Step3 nextStep={nextStep} handleDataInput={handleDataInput} />
             ) : formStep === 4 ? (
+
+             //Fourth Step
                <Step4 nextStep={nextStep} handleDataInput={handleDataInput} />
             ) : formStep === 5 ? (
-               <Step5 nextStep={nextStep} handleDataInput={handleDataInput} />
+
+             //Fifth Step
+                <Step5 nextStep={nextStep} handleDataInput={handleDataInput} />
             ) : (
                <Summary
                   wineConfiguration={wineConfiguration}
