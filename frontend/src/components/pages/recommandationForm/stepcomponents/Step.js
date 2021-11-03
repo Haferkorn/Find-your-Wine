@@ -1,35 +1,32 @@
 import {useEffect, useState} from "react";
 import styled from "styled-components/macro";
 
-function Step({toAskData,handleDataInput,nextStep}){
-    const parameter=toAskData.key
+function Step({question,handleDataInput,nextStep}){
     const [nextIndex,setNextIndex]=useState(0)
-    const [context, setContext] = useState({
-        parameter : "",
-    })
+    const [context, setContext] = useState("")
 
     const handleChoice = (event) => {
-        setContext({ [event.target.name]: event.target.value })
+        setContext( event.target.value)
         setNextIndex(event.target.id)
     }
 
     useEffect(() => {
-        handleDataInput(parameter, context[parameter])
+        handleDataInput(question.key, context)
         // eslint-disable-next-line
     }, [context])
 
-
     return(
         <form>
-            <h2>{toAskData.title}</h2>
-            {toAskData.answers.map(answer=>(
-                <div>
+            <h2>{question.title}</h2>
+            {question.answers.map(answer=>(
+                <div id={answer.value}>
                     <input
                         type="radio"
                         id={answer.nextIndex}
-                        name={toAskData.key}
+                        name={question.key}
                         value={answer.value}
                         onChange={handleChoice}
+                        checked={answer.value === context}
                     />
                     <label htmlFor={answer.nextIndex}>{answer.text}</label>
                 </div>
@@ -37,8 +34,6 @@ function Step({toAskData,handleDataInput,nextStep}){
             <NextButton type={"button"} onClick={() => nextStep(nextIndex)}>
                 next
             </NextButton>
-
-
         </form>
     )
 }export default Step

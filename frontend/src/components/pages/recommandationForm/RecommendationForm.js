@@ -6,9 +6,8 @@ import {useHistory} from "react-router";
 import Step from "./stepcomponents/Step";
 import QuestionData from "./QuestionData.json"
 
-
 function RecommendationForm() {
-   const [questionData,setQuestionData]=useState(QuestionData[0])
+   const [step,setStep]=useState(0)
    const [wineConfiguration, setWineConfiguration] = useState({
       occasion: "",
       wineStyle: "",
@@ -20,15 +19,9 @@ function RecommendationForm() {
    const history=useHistory();
 
    const nextStep = (value) => {
-      if(parseInt(value)!==7){
-         setQuestionData(QuestionData[parseInt(value)])
-      }else{
-         setQuestionData("finished")
-      }
-
+      setStep(parseInt(value))
    }
    const handleDataInput = (name, value) => {
-      console.log("Received "+name, value)
       setWineConfiguration({ ...wineConfiguration, [name]: value })
    }
 
@@ -41,17 +34,15 @@ function RecommendationForm() {
    return (
       <FormWrapper>
          <MainHeading>Let's find your wine</MainHeading>
-         <Form>
-            { questionData!=="finished"?
-               <Step toAskData={questionData} handleDataInput={handleDataInput} nextStep={nextStep}/>:
+         <StepWrapper>
+            {step!==7?
+               <Step question={QuestionData[step]} handleDataInput={handleDataInput} nextStep={nextStep}/>:
                <Summary
                wineConfiguration={wineConfiguration}
                handleSubmit={handleSubmit}
                />
             }
-
-
-         </Form>
+         </StepWrapper>
       </FormWrapper>
    )
 }
@@ -69,6 +60,6 @@ const MainHeading = styled.h2`
    font-size: 15px;
    margin: 10px;
 `
-const Form = styled.section`
+const StepWrapper = styled.section`
    margin: 10px;
 `
