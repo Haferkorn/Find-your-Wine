@@ -1,0 +1,204 @@
+[
+  {
+    "question":"For which Occasion are you looking for a wine?",
+    "key":"occasion",
+    "answers":[
+      {
+        "text": "Apéro",
+        "nextIndex": 1,
+        "value":"apero"
+      },
+      {
+        "text": "Dinner",
+        "nextIndex":2,
+        "value":"dinner"
+      },
+      {
+        "text": "After Dinner",
+        "nextIndex": 1,
+        "value":"afterDinner"
+      }
+    ]
+  },
+{
+  "question":"What is your favorite wine style?",
+  "key":"wineStyle",
+  "answers":[
+    {
+      "text": "Red",
+      "nextIndex": 4,
+      "value":"red"
+    },
+    {
+      "text": "White",
+      "nextIndex":4,
+      "value":"white"
+    },
+    {
+      "text": "Rosé",
+      "nextIndex": 4,
+      "value":"rose"
+    },
+    {
+      "text": "I don't know",
+      "nextIndex": 4,
+      "value":"red,white,rose"
+    }
+  ]
+},
+  {
+    "question":"What will be your meal?",
+    "key":"wineStyle",
+    "answers":[
+      {
+        "text": "Red Meat",
+        "nextIndex": 3,
+        "value":"red"
+      },
+      {
+        "text": "Light meat(Pig, Chicken)",
+        "nextIndex":3,
+        "value":"red,white"
+      },
+      {
+        "text": "Veggy",
+        "nextIndex": 3,
+        "value":"red,white,rose"
+      },
+      {
+        "text": "Fish",
+        "nextIndex": 3,
+        "value":"white,rose"
+      }
+    ]
+  },
+  {
+    "question":"If you had to associate your food with a region, which one would it be?",
+    "key":"region",
+    "answers":[
+
+      {
+        "text": "North-Central Europe",
+        "nextIndex":5,
+        "value":"north_central_europe"
+      },
+      {
+        "text": "South-Europe",
+        "nextIndex": 5,
+        "value":"south_europe"
+      },
+      {
+        "text": "North-America",
+        "nextIndex": 5,
+        "value":"north_america"
+      },
+      {
+        "text": "South-America",
+        "nextIndex": 5,
+        "value":"south_america"
+      },
+      {
+        "text": "Africa",
+        "nextIndex": 5,
+        "value":"africa"
+      },
+      {
+        "text": "Asia",
+        "nextIndex": 5,
+        "value":"asia"
+      },
+      {
+        "text": "Other",
+        "nextIndex": 5,
+        "value":"other"
+      }
+    ]
+  },
+  {
+    "question":"If you had to choose a region where your wine is coming from, which one would it be?",
+    "key":"region",
+    "answers":[
+
+      {
+        "text": "North-Central Europe",
+        "nextIndex":5,
+        "value":"north_central_europe"
+      },
+      {
+        "text": "South-Europe",
+        "nextIndex": 5,
+        "value":"south_europe"
+      },
+      {
+        "text": "North-America",
+        "nextIndex": 5,
+        "value":"north_america"
+      },
+      {
+        "text": "South-America",
+        "nextIndex": 5,
+        "value":"south_america"
+      },
+      {
+        "text": "Africa",
+        "nextIndex": 5,
+        "value":"africa"
+      },
+      {
+        "text": "Asia",
+        "nextIndex": 5,
+        "value":"asia"
+      },
+      {
+        "text": "Other",
+        "nextIndex": 5,
+        "value":"other"
+      }
+    ]
+  },
+
+  {
+    "question":"How strong should your wine be?",
+    "key":"alcohol",
+    "answers":[
+
+      {
+        "text": "Strong (more than 12%)",
+        "nextIndex":6,
+        "value":"strong"
+      },
+      {
+        "text": "Light (less than 12%)",
+        "nextIndex": 6,
+        "value":"light"
+      },
+      {
+        "text": "I don't mind",
+        "nextIndex": 6,
+        "value":"IdK"
+      }
+    ]
+  },
+  {
+    "question":"Which flavor characteristic do you like the most?",
+    "key":"taste",
+    "answers":[
+
+      {
+        "text": "Sweet",
+        "nextIndex":7,
+        "value":"sweet"
+      },
+      {
+        "text": "Brut (sour)",
+        "nextIndex": 7,
+        "value":"brut"
+      },
+      {
+        "text": "I don't mind",
+        "nextIndex": 7,
+        "value":"IdK"
+      }
+    ]
+  }
+]

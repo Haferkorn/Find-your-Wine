@@ -6,7 +6,7 @@ import { useHistory } from "react-router"
 function Homepage() {
    const history = useHistory()
    function handleClick() {
-      history.push("/recommendations")
+      history.push("/wineConfiguration")
    }
 
    return (
@@ -45,16 +45,7 @@ const Emphasis = styled.em`
    text-decoration: underline;
 `
 const AnimationWrapper = styled.div`
-   clip-path: polygon(
-      50% 0%,
-      90% 20%,
-      100% 60%,
-      75% 100%,
-      25% 100%,
-      0% 60%,
-      10% 20%
-   );
-   background-color: #9d9b96;
+    
 `
 
 const ButtonWrapper = styled.div`
