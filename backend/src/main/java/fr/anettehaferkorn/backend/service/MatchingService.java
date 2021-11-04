@@ -4,7 +4,6 @@ import fr.anettehaferkorn.backend.model.WineGrape;
 import fr.anettehaferkorn.backend.model.WineQuery;
 import fr.anettehaferkorn.backend.repo.WineGrapeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.aggregation.ArrayOperators;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -36,6 +35,7 @@ public class MatchingService {
                 (wineQuery.getOccasion(), wineQuery.getWineStyle());
     }
 
+    @SuppressWarnings("java:S1192")
     private List<RecommendationDTO> matchSecondFilterLayer(WineQuery wineQuery, List<RecommendationDTO> wineMatches){
 
         for (RecommendationDTO match: wineMatches) {
