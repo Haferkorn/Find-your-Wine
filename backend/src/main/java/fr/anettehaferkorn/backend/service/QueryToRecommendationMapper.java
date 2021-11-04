@@ -1,16 +1,16 @@
 package fr.anettehaferkorn.backend.service;
 
 import fr.anettehaferkorn.backend.model.RecommendationDTO;
-import fr.anettehaferkorn.backend.model.WineQueryDTO;
+import fr.anettehaferkorn.backend.model.WineGrape;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class QueryToRecommendationMapper {
 
-    public static List<RecommendationDTO> mapQuerytoRecommendation(List<WineQueryDTO> wineQueryDTOS){
+    public static List<RecommendationDTO> mapQuerytoRecommendation(List<WineGrape> wineGrapes){
         List<RecommendationDTO> recommendationDTOS= new ArrayList<>();
-        for (WineQueryDTO wineOfDB: wineQueryDTOS) {
+        for (WineGrape wineOfDB: wineGrapes) {
             recommendationDTOS.add(
             new RecommendationDTO(
                     wineOfDB.getName(),

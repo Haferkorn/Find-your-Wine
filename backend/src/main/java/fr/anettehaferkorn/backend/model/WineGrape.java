@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @NoArgsConstructor
 @AllArgsConstructor
 @Document("WineGrapes")
-public class WineQueryDTO {
+public class WineGrape {
 
     private String name;
     private String occasion;

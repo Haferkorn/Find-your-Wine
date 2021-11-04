@@ -1,12 +1,12 @@
 package fr.anettehaferkorn.backend.service;
 
 import fr.anettehaferkorn.backend.model.RecommendationDTO;
-import fr.anettehaferkorn.backend.model.WineQueryDTO;
+import fr.anettehaferkorn.backend.model.WineGrape;
+import fr.anettehaferkorn.backend.model.WineQuery;
 import fr.anettehaferkorn.backend.repo.WineGrapeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -19,13 +19,14 @@ public class MatchingService {
         this.wineGrapeRepository = wineGrapeRepository;
     }
 
-    public List<RecommendationDTO> getMatchingWines(WineQueryDTO wineQueryDTO){
-
-        List<RecommendationDTO> recommendations=new ArrayList<>();
+    public List<RecommendationDTO> getMatchingWines(WineQuery wineQuery){
+        List<WineGrape> matchingWineByOccasionAndStyle=
+                wineGrapeRepository.findWineQueryDTOByOccasionAndWineStyle(wineQuery.getOccasion(), wineQuery.getWineStyle());
+        List<RecommendationDTO> recommendations= QueryToRecommendationMapper.mapQuerytoRecommendation(matchingWineByOccasionAndStyle);
         return recommendations;
     }
 
-    public List<WineQueryDTO> getAllWine(){
+    public List<WineGrape> getAllWine(){
         return wineGrapeRepository.findAll();
     }
 

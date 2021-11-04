@@ -1,7 +1,8 @@
 package fr.anettehaferkorn.backend.controller;
 
 import fr.anettehaferkorn.backend.model.RecommendationDTO;
-import fr.anettehaferkorn.backend.model.WineQueryDTO;
+import fr.anettehaferkorn.backend.model.WineGrape;
+import fr.anettehaferkorn.backend.model.WineQuery;
 import fr.anettehaferkorn.backend.service.MatchingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,12 +21,12 @@ public class RecommendationController {
     }
 
     @GetMapping
-    public List<WineQueryDTO> getAllWine(){
+    public List<WineGrape> getAllWine(){
         return matchingService.getAllWine();
     }
 
     @PostMapping
-    public List<RecommendationDTO> getMatchingWines(@RequestBody WineQueryDTO wineQueryDTO){
-        return matchingService.getMatchingWines(wineQueryDTO);
+    public List<RecommendationDTO> getMatchingWines(@RequestBody WineQuery wineQuery){
+        return matchingService.getMatchingWines(wineQuery);
     }
 }
