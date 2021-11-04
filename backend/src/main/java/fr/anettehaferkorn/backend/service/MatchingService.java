@@ -49,7 +49,7 @@ public class MatchingService {
         return matchThirdFilterLayer(wineQuery,wineMatches);
     }
 
-    private List<RecommendationDTO> matchThirdFilterLayer(WineQuery wineQuery, List<RecommendationDTO> wineMatches){
+   private List<RecommendationDTO> matchThirdFilterLayer(WineQuery wineQuery, List<RecommendationDTO> wineMatches){
 
         for (RecommendationDTO match: wineMatches) {
             if(Objects.equals(match.getAlcohol(), wineQuery.getAlcohol()) ||
@@ -73,7 +73,7 @@ public class MatchingService {
         return wineMatches;
     }
 
-    public List<RecommendationDTO>cleanMatches(List<RecommendationDTO> matches){
+    private List<RecommendationDTO>cleanMatches(List<RecommendationDTO> matches){
             matches.removeIf(match -> match.getMatchingPoints() <2);
             return matches;
     }
