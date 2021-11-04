@@ -8,11 +8,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class RecommendationDTO {
+    private String name;
     private String occasion;
     private String wineStyle;
     private String region;
     private String alcohol;
     private String taste;
+    private String description;
     private Integer matchingPoints;
 
 }

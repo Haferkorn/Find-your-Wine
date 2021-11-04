@@ -3,10 +3,12 @@ package fr.anettehaferkorn.backend.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Document("WineGrapes")
 public class WineQueryDTO {
 
     private String occasion;
@@ -14,5 +16,6 @@ public class WineQueryDTO {
     private String region;
     private String alcohol;
     private String taste;
+    private String description;
 
 }
