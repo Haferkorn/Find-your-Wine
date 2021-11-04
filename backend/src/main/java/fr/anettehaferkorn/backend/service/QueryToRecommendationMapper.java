@@ -8,6 +8,8 @@ import java.util.List;
 
 public class QueryToRecommendationMapper {
 
+
+
     public static List<RecommendationDTO> mapQuerytoRecommendation(List<WineGrape> wineGrapes){
         List<RecommendationDTO> recommendationDTOS= new ArrayList<>();
         for (WineGrape wineOfDB: wineGrapes) {

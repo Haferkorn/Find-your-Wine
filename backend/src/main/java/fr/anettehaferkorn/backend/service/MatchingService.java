@@ -26,7 +26,7 @@ public class MatchingService {
         return cleanMatches(optionFilteredRecommendations);
 
     }
-    public List<WineGrape> getAllWine(){
+    public List<WineGrape> getAllWines(){
         return wineGrapeRepository.findAll();
     }
 

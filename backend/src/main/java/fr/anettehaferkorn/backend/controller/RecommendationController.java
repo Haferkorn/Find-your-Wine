@@ -21,8 +21,8 @@ public class RecommendationController {
     }
 
     @GetMapping
-    public List<WineGrape> getAllWine(){
-        return matchingService.getAllWine();
+    public List<WineGrape> getAllWines(){
+        return matchingService.getAllWines();
     }
 
     @PostMapping
