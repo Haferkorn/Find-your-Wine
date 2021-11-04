@@ -1,13 +1,12 @@
 package fr.anettehaferkorn.backend.service;
-
 import fr.anettehaferkorn.backend.model.RecommendationDTO;
 import fr.anettehaferkorn.backend.model.WineGrape;
 import fr.anettehaferkorn.backend.model.WineQuery;
 import fr.anettehaferkorn.backend.repo.WineGrapeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.aggregation.ArrayOperators;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -28,7 +27,6 @@ public class MatchingService {
         return cleanMatches(optionFilteredRecommendations);
 
     }
-
     public List<WineGrape> getAllWine(){
         return wineGrapeRepository.findAll();
     }
@@ -41,7 +39,10 @@ public class MatchingService {
     private List<RecommendationDTO> matchSecondFilterLayer(WineQuery wineQuery, List<RecommendationDTO> wineMatches){
 
         for (RecommendationDTO match: wineMatches) {
-            if(Objects.equals(match.getRegion(), wineQuery.getRegion())){
+            if(Objects.equals(match.getRegion(), wineQuery.getRegion())||
+                    (Objects.equals(wineQuery.getRegion(),"other"))||
+                    (Objects.equals(wineQuery.getRegion(),"idK"))
+            ){
                 match.setMatchingPoints(match.getMatchingPoints()+1);
             }
         }
@@ -51,7 +52,9 @@ public class MatchingService {
     private List<RecommendationDTO> matchThirdFilterLayer(WineQuery wineQuery, List<RecommendationDTO> wineMatches){
 
         for (RecommendationDTO match: wineMatches) {
-            if(Objects.equals(match.getAlcohol(), wineQuery.getAlcohol())){
+            if(Objects.equals(match.getAlcohol(), wineQuery.getAlcohol()) ||
+                    (Objects.equals(wineQuery.getRegion(),"other"))||
+                    (Objects.equals(wineQuery.getRegion(),"idK"))){
                 match.setMatchingPoints(match.getMatchingPoints()+1);
             }
         }
@@ -61,7 +64,9 @@ public class MatchingService {
     private List<RecommendationDTO> matchFourthFilterLayer(WineQuery wineQuery, List<RecommendationDTO> wineMatches){
 
         for (RecommendationDTO match: wineMatches) {
-            if(Objects.equals(match.getTaste(), wineQuery.getTaste())){
+            if(Objects.equals(match.getTaste(), wineQuery.getTaste()) ||
+                    (Objects.equals(wineQuery.getRegion(),"other"))||
+                    (Objects.equals(wineQuery.getRegion(),"idK"))){
                 match.setMatchingPoints(match.getMatchingPoints()+1);
             }
         }
@@ -69,15 +74,9 @@ public class MatchingService {
     }
 
     public List<RecommendationDTO>cleanMatches(List<RecommendationDTO> matches){
-        List<RecommendationDTO> goodMatches=matches;
-        goodMatches.removeIf(match -> match.getMatchingPoints() < 2);
-        return goodMatches;
+            matches.removeIf(match -> match.getMatchingPoints() <2);
+            return matches;
     }
-
-
-
-
-
 
 
 }
