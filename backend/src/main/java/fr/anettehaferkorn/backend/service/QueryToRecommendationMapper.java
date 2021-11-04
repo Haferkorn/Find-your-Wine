@@ -13,11 +13,13 @@ public class QueryToRecommendationMapper {
         for (WineQueryDTO wineOfDB: wineQueryDTOS) {
             recommendationDTOS.add(
             new RecommendationDTO(
+                    wineOfDB.getName(),
                     wineOfDB.getOccasion(),
                     wineOfDB.getWineStyle(),
                     wineOfDB.getRegion(),
                     wineOfDB.getAlcohol(),
                     wineOfDB.getTaste(),
+                    wineOfDB.getDescription(),
                     0));
         }
         return  recommendationDTOS;

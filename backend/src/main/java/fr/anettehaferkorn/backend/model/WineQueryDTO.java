@@ -11,6 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document("WineGrapes")
 public class WineQueryDTO {
 
+    private String name;
     private String occasion;
     private String wineStyle;
     private String region;

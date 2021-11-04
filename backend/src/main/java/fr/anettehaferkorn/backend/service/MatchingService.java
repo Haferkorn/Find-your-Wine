@@ -25,6 +25,10 @@ public class MatchingService {
         return recommendations;
     }
 
+    public List<WineQueryDTO> getAllWine(){
+        return wineGrapeRepository.findAll();
+    }
+
 
 
 
