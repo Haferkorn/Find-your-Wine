@@ -100,7 +100,13 @@
       {
         "text": "Other",
         "nextIndex": 5,
-        "value":"Other"
+        "value":"other"
+      }
+    ,
+      {
+        "text": "I don't mind",
+        "nextIndex": 5,
+        "value":"Idk"
       }
     ]
   },
