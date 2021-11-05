@@ -7,6 +7,7 @@ import fr.anettehaferkorn.backend.repo.WineGrapeRepository;
 import fr.anettehaferkorn.backend.service.filter.FilterByAlcohol;
 import fr.anettehaferkorn.backend.service.filter.FilterByRegion;
 import fr.anettehaferkorn.backend.service.filter.FilterByTaste;
+import fr.anettehaferkorn.backend.service.filter.FilterByWineStyle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,8 +29,9 @@ public class MatchingService {
     }
 
     public List<RecommendationDTO> getMatchingWines(WineQuery wineQuery){
-        List<WineGrape> matchingWineByOccasionAndStyle= matchByOccasionAndWineStyle(wineQuery);
-        List<RecommendationDTO> recommendations= QueryToRecommendationMapper.mapQuerytoRecommendation(matchingWineByOccasionAndStyle);
+        List<WineGrape> matchingWineByOccasion= matchByOccasion(wineQuery);
+        List<WineGrape>matchingWinesByWineStyle= FilterByWineStyle.filteringByWineStyle(matchingWineByOccasion,wineQuery);
+        List<RecommendationDTO> recommendations= QueryToRecommendationMapper.mapQuerytoRecommendation(matchingWinesByWineStyle);
         List<RecommendationDTO> filteredByRegion= FilterByRegion.matchByRegion(wineQuery,recommendations);
         List<RecommendationDTO>filteredByTaste= FilterByTaste.matchByTaste(wineQuery,filteredByRegion);
         List<RecommendationDTO> filteredByAlcohol= FilterByAlcohol.matchByAlcohol(wineQuery,filteredByTaste);
@@ -37,9 +39,8 @@ public class MatchingService {
         return orderMatches(filterLowMatches);
     }
 
-    private List<WineGrape> matchByOccasionAndWineStyle(WineQuery wineQuery){
-        List<WineGrape>filteredWineGrapes=wineGrapeRepository.findWineQueryDTOByOccasionAndWineStyle
-                (wineQuery.getOccasion(), wineQuery.getWineStyle());
+    private List<WineGrape> matchByOccasion(WineQuery wineQuery){
+        List<WineGrape>filteredWineGrapes=wineGrapeRepository.findWineQueryDTOByOccasion(wineQuery.getOccasion());
 
         if(filteredWineGrapes.isEmpty()){
             throw new NoMatchingWineException("No matching wines");

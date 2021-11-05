@@ -29,7 +29,7 @@ class MatchingServiceTest {
                 new RecommendationDTO("CCCC","dinner","red","France","strong","sweet","abcd",2)
         );
 
-       when(wineGrapeRepository.findWineQueryDTOByOccasionAndWineStyle(wineQuery.getOccasion(),wineQuery.getWineStyle())).thenReturn(mockedRecommendations);
+       when(wineGrapeRepository.findWineQueryDTOByOccasion(wineQuery.getOccasion())).thenReturn(mockedRecommendations);
 
         //When
         List<RecommendationDTO> actual = matchingService.getMatchingWines(wineQuery);
@@ -56,7 +56,7 @@ class MatchingServiceTest {
 
         );
 
-        when(wineGrapeRepository.findWineQueryDTOByOccasionAndWineStyle(wineQuery.getOccasion(),wineQuery.getWineStyle())).thenReturn(mockedRecommendations);
+        when(wineGrapeRepository.findWineQueryDTOByOccasion(wineQuery.getOccasion())).thenReturn(mockedRecommendations);
 
         //When
         List<RecommendationDTO> actual = matchingService.getMatchingWines(wineQuery);
@@ -82,7 +82,7 @@ class MatchingServiceTest {
 
         );
 
-        when(wineGrapeRepository.findWineQueryDTOByOccasionAndWineStyle(wineQuery.getOccasion(),wineQuery.getWineStyle())).thenReturn(mockedRecommendations);
+        when(wineGrapeRepository.findWineQueryDTOByOccasion(wineQuery.getOccasion())).thenReturn(mockedRecommendations);
 
         //When
         List<RecommendationDTO> actual = matchingService.getMatchingWines(wineQuery);
@@ -96,7 +96,7 @@ class MatchingServiceTest {
         MatchingService matchingService = new MatchingService(wineGrapeRepository);
         WineQuery wineQuery=new WineQuery("dinner","red","idK","light","sweet");
 
-        when(wineGrapeRepository.findWineQueryDTOByOccasionAndWineStyle(wineQuery.getOccasion(),wineQuery.getWineStyle())).thenReturn(List.of());
+        when(wineGrapeRepository.findWineQueryDTOByOccasion(wineQuery.getOccasion())).thenReturn(List.of());
 
         //Then
         assertThrows(NoMatchingWineException.class, () -> matchingService.getMatchingWines(wineQuery));

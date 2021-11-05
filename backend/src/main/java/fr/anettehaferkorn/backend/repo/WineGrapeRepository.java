@@ -11,5 +11,5 @@ import java.util.Optional;
 public interface WineGrapeRepository extends PagingAndSortingRepository<WineGrape, String> {
     public List<WineGrape> findAll();
 
-    public List<WineGrape> findWineQueryDTOByOccasionAndWineStyle(String occasion, String wineStyle);
+    public List<WineGrape> findWineQueryDTOByOccasion(String occasion);
 }
