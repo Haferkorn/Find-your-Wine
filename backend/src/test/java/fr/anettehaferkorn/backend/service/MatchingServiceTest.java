@@ -37,4 +37,30 @@ class MatchingServiceTest {
 
     }
 
+    @Test
+    void getMatchingWines_2() {
+        MatchingService matchingService = new MatchingService(wineGrapeRepository);
+        WineQuery wineQuery=new WineQuery("dinner","red","idK","light","sweet");
+        List<WineGrape>mockedRecommendations=List.of(
+                new WineGrape("AAAA","dinner","red","France","light","sweet","abcd"),
+                new WineGrape("BBBB","dinner","red","France","strong","dry","abcd"),
+                new WineGrape("CCCC","dinner","red","France","strong","sweet","abcd"),
+                new WineGrape("DDDD","dinner","red","Italy","strong","dry","abcd"),
+                new WineGrape("EEEE","dinner","red","Spain","light","sweet","abcd")
+        );
+        List<RecommendationDTO>mockedMatches=List.of(
+                new RecommendationDTO("AAAA","dinner","red","France","light","sweet","abcd",3),
+                new RecommendationDTO("CCCC","dinner","red","France","strong","sweet","abcd",2),
+                new RecommendationDTO("EEEE","dinner","red","Spain","light","sweet","abcd",3)
+        );
+
+        when(wineGrapeRepository.findWineQueryDTOByOccasionAndWineStyle(wineQuery.getOccasion(),wineQuery.getWineStyle())).thenReturn(mockedRecommendations);
+
+        //When
+        List<RecommendationDTO> actual = matchingService.getMatchingWines(wineQuery);
+        //Then
+        assertEquals(mockedMatches, actual);
+
+    }
+
 }
