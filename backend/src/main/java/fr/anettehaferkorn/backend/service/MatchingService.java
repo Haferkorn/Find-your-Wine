@@ -3,11 +3,17 @@ import fr.anettehaferkorn.backend.model.RecommendationDTO;
 import fr.anettehaferkorn.backend.model.WineGrape;
 import fr.anettehaferkorn.backend.model.WineQuery;
 import fr.anettehaferkorn.backend.repo.WineGrapeRepository;
+import fr.anettehaferkorn.backend.service.filter.FilterByAlcohol;
+import fr.anettehaferkorn.backend.service.filter.FilterByRegion;
+import fr.anettehaferkorn.backend.service.filter.FilterByTaste;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+
 
 @Service
 public class MatchingService {
@@ -22,8 +28,12 @@ public class MatchingService {
     public List<RecommendationDTO> getMatchingWines(WineQuery wineQuery){
         List<WineGrape> matchingWineByOccasionAndStyle= matchByOccasionAndWineStyle(wineQuery);
         List<RecommendationDTO> recommendations= QueryToRecommendationMapper.mapQuerytoRecommendation(matchingWineByOccasionAndStyle);
-        List<RecommendationDTO> optionFilteredRecommendations= matchByRegion(wineQuery,recommendations);
-        return removeLowMatches(optionFilteredRecommendations);
+        List<RecommendationDTO> filteredByRegion= FilterByRegion.matchByRegion(wineQuery,recommendations);
+        List<RecommendationDTO>filteredByTaste= FilterByTaste.matchByTaste(wineQuery,filteredByRegion);
+        List<RecommendationDTO> filteredByAlcohol= FilterByAlcohol.matchByAlcohol(wineQuery,filteredByTaste);
+        List<RecommendationDTO>filterLowMatches=removeLowMatches(filteredByAlcohol);
+        return orderMatches(filterLowMatches);
+
 
     }
     public List<WineGrape> getAllWines(){
@@ -35,47 +45,23 @@ public class MatchingService {
                 (wineQuery.getOccasion(), wineQuery.getWineStyle());
     }
 
-    @SuppressWarnings("java:S1192")
-    private List<RecommendationDTO> matchByRegion(WineQuery wineQuery, List<RecommendationDTO> wineMatches){
-
-        for (RecommendationDTO match: wineMatches) {
-            if(Objects.equals(match.getRegion(), wineQuery.getRegion())||
-                    (Objects.equals(wineQuery.getRegion(),"other"))||
-                    (Objects.equals(wineQuery.getRegion(),"idK"))
-            ){
-                match.setMatchingPoints(match.getMatchingPoints()+1);
-            }
-        }
-        return matchByAlcohol(wineQuery,wineMatches);
-    }
-
-   private List<RecommendationDTO> matchByAlcohol(WineQuery wineQuery, List<RecommendationDTO> wineMatches){
-
-        for (RecommendationDTO match: wineMatches) {
-            if(Objects.equals(match.getAlcohol(), wineQuery.getAlcohol()) ||
-                    (Objects.equals(wineQuery.getAlcohol(),"other"))||
-                    (Objects.equals(wineQuery.getAlcohol(),"idK"))){
-                match.setMatchingPoints(match.getMatchingPoints()+1);
-            }
-        }
-        return matchByTaste(wineQuery,wineMatches);
-    }
-
-    private List<RecommendationDTO> matchByTaste(WineQuery wineQuery, List<RecommendationDTO> wineMatches){
-
-        for (RecommendationDTO match: wineMatches) {
-            if(Objects.equals(match.getTaste(), wineQuery.getTaste()) ||
-                    (Objects.equals(wineQuery.getTaste(),"other"))||
-                    (Objects.equals(wineQuery.getTaste(),"idK"))){
-                match.setMatchingPoints(match.getMatchingPoints()+1);
-            }
-        }
-        return wineMatches;
-    }
-
     private List<RecommendationDTO> removeLowMatches(List<RecommendationDTO> matches){
             matches.removeIf(match -> match.getMatchingPoints() <2);
-            return matches;
+            return orderMatches(matches);
+    }
+
+    private List<RecommendationDTO> orderMatches(List<RecommendationDTO> matches){
+        List<RecommendationDTO> orderedMatches=new ArrayList<>();
+        Integer currentValue=3;
+        for (RecommendationDTO match:matches) {
+            if(Objects.equals(match.getMatchingPoints(), currentValue)){
+                orderedMatches.add(0,match);
+            }else {
+                orderedMatches.add(orderedMatches.size(),match);
+            }
+        }
+
+        return orderedMatches;
     }
 
 
