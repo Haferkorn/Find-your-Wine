@@ -20,23 +20,23 @@ public class MatchingService {
     }
 
     public List<RecommendationDTO> getMatchingWines(WineQuery wineQuery){
-        List<WineGrape> matchingWineByOccasionAndStyle=matchFirstFilterLayer(wineQuery);
+        List<WineGrape> matchingWineByOccasionAndStyle= matchByOccasionAndWineStyle(wineQuery);
         List<RecommendationDTO> recommendations= QueryToRecommendationMapper.mapQuerytoRecommendation(matchingWineByOccasionAndStyle);
-        List<RecommendationDTO> optionFilteredRecommendations=matchSecondFilterLayer(wineQuery,recommendations);
-        return cleanMatches(optionFilteredRecommendations);
+        List<RecommendationDTO> optionFilteredRecommendations= matchByRegion(wineQuery,recommendations);
+        return removeLowMatches(optionFilteredRecommendations);
 
     }
     public List<WineGrape> getAllWines(){
         return wineGrapeRepository.findAll();
     }
 
-    private List<WineGrape> matchFirstFilterLayer(WineQuery wineQuery){
+    private List<WineGrape> matchByOccasionAndWineStyle(WineQuery wineQuery){
         return wineGrapeRepository.findWineQueryDTOByOccasionAndWineStyle
                 (wineQuery.getOccasion(), wineQuery.getWineStyle());
     }
 
     @SuppressWarnings("java:S1192")
-    private List<RecommendationDTO> matchSecondFilterLayer(WineQuery wineQuery, List<RecommendationDTO> wineMatches){
+    private List<RecommendationDTO> matchByRegion(WineQuery wineQuery, List<RecommendationDTO> wineMatches){
 
         for (RecommendationDTO match: wineMatches) {
             if(Objects.equals(match.getRegion(), wineQuery.getRegion())||
@@ -46,34 +46,34 @@ public class MatchingService {
                 match.setMatchingPoints(match.getMatchingPoints()+1);
             }
         }
-        return matchThirdFilterLayer(wineQuery,wineMatches);
+        return matchByAlcohol(wineQuery,wineMatches);
     }
 
-   private List<RecommendationDTO> matchThirdFilterLayer(WineQuery wineQuery, List<RecommendationDTO> wineMatches){
+   private List<RecommendationDTO> matchByAlcohol(WineQuery wineQuery, List<RecommendationDTO> wineMatches){
 
         for (RecommendationDTO match: wineMatches) {
             if(Objects.equals(match.getAlcohol(), wineQuery.getAlcohol()) ||
-                    (Objects.equals(wineQuery.getRegion(),"other"))||
-                    (Objects.equals(wineQuery.getRegion(),"idK"))){
+                    (Objects.equals(wineQuery.getAlcohol(),"other"))||
+                    (Objects.equals(wineQuery.getAlcohol(),"idK"))){
                 match.setMatchingPoints(match.getMatchingPoints()+1);
             }
         }
-        return matchFourthFilterLayer(wineQuery,wineMatches);
+        return matchByTaste(wineQuery,wineMatches);
     }
 
-    private List<RecommendationDTO> matchFourthFilterLayer(WineQuery wineQuery, List<RecommendationDTO> wineMatches){
+    private List<RecommendationDTO> matchByTaste(WineQuery wineQuery, List<RecommendationDTO> wineMatches){
 
         for (RecommendationDTO match: wineMatches) {
             if(Objects.equals(match.getTaste(), wineQuery.getTaste()) ||
-                    (Objects.equals(wineQuery.getRegion(),"other"))||
-                    (Objects.equals(wineQuery.getRegion(),"idK"))){
+                    (Objects.equals(wineQuery.getTaste(),"other"))||
+                    (Objects.equals(wineQuery.getTaste(),"idK"))){
                 match.setMatchingPoints(match.getMatchingPoints()+1);
             }
         }
         return wineMatches;
     }
 
-    private List<RecommendationDTO>cleanMatches(List<RecommendationDTO> matches){
+    private List<RecommendationDTO> removeLowMatches(List<RecommendationDTO> matches){
             matches.removeIf(match -> match.getMatchingPoints() <2);
             return matches;
     }
