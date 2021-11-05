@@ -50,8 +50,9 @@ class MatchingServiceTest {
         );
         List<RecommendationDTO>mockedMatches=List.of(
                 new RecommendationDTO("AAAA","dinner","red","France","light","sweet","abcd",3),
-                new RecommendationDTO("CCCC","dinner","red","France","strong","sweet","abcd",2),
-                new RecommendationDTO("EEEE","dinner","red","Spain","light","sweet","abcd",3)
+                new RecommendationDTO("EEEE","dinner","red","Spain","light","sweet","abcd",3),
+                new RecommendationDTO("CCCC","dinner","red","France","strong","sweet","abcd",2)
+
         );
 
         when(wineGrapeRepository.findWineQueryDTOByOccasionAndWineStyle(wineQuery.getOccasion(),wineQuery.getWineStyle())).thenReturn(mockedRecommendations);
