@@ -1,5 +1,6 @@
 package fr.anettehaferkorn.backend.service.filter;
 
+import fr.anettehaferkorn.backend.controller.exception.NoMatchingWineException;
 import fr.anettehaferkorn.backend.model.WineGrape;
 import fr.anettehaferkorn.backend.model.WineQuery;
 import org.junit.jupiter.api.Test;
@@ -70,6 +71,28 @@ class FilterByWineStyleTest {
 
         //Then
         assertEquals(filteredByWineStyleMock,actual);
+
+    }
+
+    @Test
+    void filteringByWineStyle_Exception() {
+
+        //Given
+        List<WineGrape> wineGrapes=List.of(
+
+                new WineGrape("AAAA","dinner","white","France","light","sweet","abcd"),
+                new WineGrape("BBBB","dinner","red","France","strong","dry","abcd"),
+                new WineGrape("CCCC","dinner","red","France","strong","sweet","abcd"),
+                new WineGrape("DDDD","dinner","white","Italy","strong","dry","abcd"),
+                new WineGrape("EEEE","dinner","red","Spain","light","sweet","abcd")
+
+        );
+
+        WineQuery wineQuery=new WineQuery("dinner","rose","idK","light","sweet");
+
+
+        //Then
+        assertThrows(NoMatchingWineException.class, () -> FilterByWineStyle.filteringByWineStyle(wineGrapes,wineQuery));
 
     }
 }

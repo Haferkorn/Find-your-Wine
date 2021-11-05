@@ -30,7 +30,7 @@ public class MatchingService {
 
     public List<RecommendationDTO> getMatchingWines(WineQuery wineQuery){
         List<WineGrape> matchingWineByOccasion= matchByOccasion(wineQuery);
-        List<WineGrape>matchingWinesByWineStyle= FilterByWineStyle.filteringByWineStyle(matchingWineByOccasion,wineQuery);
+        List<WineGrape>matchingWinesByWineStyle=FilterByWineStyle.filteringByWineStyle(matchingWineByOccasion,wineQuery);
         List<RecommendationDTO> recommendations= QueryToRecommendationMapper.mapQuerytoRecommendation(matchingWinesByWineStyle);
         List<RecommendationDTO> filteredByRegion= FilterByRegion.matchByRegion(wineQuery,recommendations);
         List<RecommendationDTO>filteredByTaste= FilterByTaste.matchByTaste(wineQuery,filteredByRegion);

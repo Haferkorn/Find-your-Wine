@@ -1,6 +1,6 @@
 package fr.anettehaferkorn.backend.service.filter;
 
-import fr.anettehaferkorn.backend.model.RecommendationDTO;
+import fr.anettehaferkorn.backend.controller.exception.NoMatchingWineException;
 import fr.anettehaferkorn.backend.model.WineGrape;
 import fr.anettehaferkorn.backend.model.WineQuery;
 
@@ -19,6 +19,9 @@ public class FilterByWineStyle {
                     filteredWineGrapes.add(wineGrape);
                 }
             }
+        }
+        if(filteredWineGrapes.isEmpty()){
+            throw new NoMatchingWineException("There is no Matching Wine to WineStyle");
         }
         return filteredWineGrapes;
     }

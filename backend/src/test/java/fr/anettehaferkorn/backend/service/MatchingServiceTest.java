@@ -1,5 +1,4 @@
 package fr.anettehaferkorn.backend.service;
-
 import fr.anettehaferkorn.backend.controller.exception.NoMatchingWineException;
 import fr.anettehaferkorn.backend.model.RecommendationDTO;
 import fr.anettehaferkorn.backend.model.WineGrape;
@@ -92,11 +91,31 @@ class MatchingServiceTest {
     }
 
     @Test
-    void noMatches() {
+    void noMatches_Occasion() {
         MatchingService matchingService = new MatchingService(wineGrapeRepository);
         WineQuery wineQuery=new WineQuery("dinner","red","idK","light","sweet");
 
         when(wineGrapeRepository.findWineQueryDTOByOccasion(wineQuery.getOccasion())).thenReturn(List.of());
+
+        //Then
+        assertThrows(NoMatchingWineException.class, () -> matchingService.getMatchingWines(wineQuery));
+
+    }
+
+    @Test
+    void noMatches_WineStyle() {
+        MatchingService matchingService = new MatchingService(wineGrapeRepository);
+        WineQuery wineQuery=new WineQuery("dinner","white","idK","light","sweet");
+
+        List<WineGrape>mockedRecommendations=List.of(
+                new WineGrape("AAAA","dinner","red","France","light","sweet","abcd"),
+                new WineGrape("BBBB","dinner","red","France","strong","dry","abcd"),
+                new WineGrape("CCCC","dinner","red","France","strong","sweet","abcd"),
+                new WineGrape("DDDD","dinner","red","Italy","strong","dry","abcd"),
+                new WineGrape("EEEE","dinner","red","Spain","light","sweet","abcd")
+        );
+
+        when(wineGrapeRepository.findWineQueryDTOByOccasion(wineQuery.getOccasion())).thenReturn(mockedRecommendations);
 
         //Then
         assertThrows(NoMatchingWineException.class, () -> matchingService.getMatchingWines(wineQuery));
