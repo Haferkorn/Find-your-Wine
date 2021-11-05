@@ -1,4 +1,5 @@
 package fr.anettehaferkorn.backend.service;
+import fr.anettehaferkorn.backend.controller.exception.NoMatchingWineException;
 import fr.anettehaferkorn.backend.model.RecommendationDTO;
 import fr.anettehaferkorn.backend.model.WineGrape;
 import fr.anettehaferkorn.backend.model.WineQuery;
@@ -9,10 +10,7 @@ import fr.anettehaferkorn.backend.service.filter.FilterByTaste;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-
+import java.util.*;
 
 
 @Service
@@ -41,8 +39,13 @@ public class MatchingService {
     }
 
     private List<WineGrape> matchByOccasionAndWineStyle(WineQuery wineQuery){
-        return wineGrapeRepository.findWineQueryDTOByOccasionAndWineStyle
+        List<WineGrape>filteredWineGrapes=wineGrapeRepository.findWineQueryDTOByOccasionAndWineStyle
                 (wineQuery.getOccasion(), wineQuery.getWineStyle());
+
+        if(filteredWineGrapes.isEmpty()){
+            throw new NoMatchingWineException("No matching wines");
+
+        }return filteredWineGrapes;
     }
 
     private List<RecommendationDTO> removeLowMatches(List<RecommendationDTO> matches){
@@ -60,7 +63,6 @@ public class MatchingService {
                 orderedMatches.add(orderedMatches.size(),match);
             }
         }
-
         return orderedMatches;
     }
 

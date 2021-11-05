@@ -1,5 +1,6 @@
 package fr.anettehaferkorn.backend.service;
 
+import fr.anettehaferkorn.backend.controller.exception.NoMatchingWineException;
 import fr.anettehaferkorn.backend.model.RecommendationDTO;
 import fr.anettehaferkorn.backend.model.WineGrape;
 import fr.anettehaferkorn.backend.model.WineQuery;
@@ -61,6 +62,18 @@ class MatchingServiceTest {
         List<RecommendationDTO> actual = matchingService.getMatchingWines(wineQuery);
         //Then
         assertEquals(mockedMatches, actual);
+
+    }
+
+    @Test
+    void noMatches() {
+        MatchingService matchingService = new MatchingService(wineGrapeRepository);
+        WineQuery wineQuery=new WineQuery("dinner","red","idK","light","sweet");
+
+        when(wineGrapeRepository.findWineQueryDTOByOccasionAndWineStyle(wineQuery.getOccasion(),wineQuery.getWineStyle())).thenReturn(List.of());
+
+        //Then
+        assertThrows(NoMatchingWineException.class, () -> matchingService.getMatchingWines(wineQuery));
 
     }
 
