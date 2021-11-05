@@ -23,6 +23,10 @@ public class MatchingService {
         this.wineGrapeRepository = wineGrapeRepository;
     }
 
+    public List<WineGrape> getAllWines(){
+        return wineGrapeRepository.findAll();
+    }
+
     public List<RecommendationDTO> getMatchingWines(WineQuery wineQuery){
         List<WineGrape> matchingWineByOccasionAndStyle= matchByOccasionAndWineStyle(wineQuery);
         List<RecommendationDTO> recommendations= QueryToRecommendationMapper.mapQuerytoRecommendation(matchingWineByOccasionAndStyle);
@@ -31,11 +35,6 @@ public class MatchingService {
         List<RecommendationDTO> filteredByAlcohol= FilterByAlcohol.matchByAlcohol(wineQuery,filteredByTaste);
         List<RecommendationDTO>filterLowMatches=removeLowMatches(filteredByAlcohol);
         return orderMatches(filterLowMatches);
-
-
-    }
-    public List<WineGrape> getAllWines(){
-        return wineGrapeRepository.findAll();
     }
 
     private List<WineGrape> matchByOccasionAndWineStyle(WineQuery wineQuery){
