@@ -2,33 +2,16 @@ import styled from "styled-components/macro"
 
 import { useState } from "react"
 import Summary from "./stepcomponents/Summary"
-import {useHistory} from "react-router";
+
 import Step from "./stepcomponents/Step";
 import QuestionData from "./QuestionData.json"
 
-function RecommendationForm() {
-   const [step,setStep]=useState(0)
-   const [wineConfiguration, setWineConfiguration] = useState({
-      occasion: "",
-      wineStyle: "",
-      region: "",
-      alcohol: "",
-      taste: "",
-   })
 
-   const history=useHistory();
+function RecommendationForm({handleSubmit,handleDataInput,wineConfiguration}) {
+   const [step,setStep]=useState(0)
 
    const nextStep = (value) => {
       setStep(parseInt(value))
-   }
-   const handleDataInput = (name, value) => {
-      setWineConfiguration({ ...wineConfiguration, [name]: value })
-   }
-
-   const handleSubmit = () => {
-      //future PostMapping
-      console.log("Data send")
-      history.push("/recommendations")
    }
 
    return (
