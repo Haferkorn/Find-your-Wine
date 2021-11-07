@@ -24,4 +24,4 @@ jobs:
       - name: Build with Maven
         run: |
           cd backend
-          mvn -B package --file backend/pom.xml
+          mvn -B package --file pom.xml
