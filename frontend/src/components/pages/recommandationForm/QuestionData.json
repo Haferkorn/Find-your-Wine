@@ -16,7 +16,7 @@
       {
         "text": "After Dinner",
         "nextIndex": 1,
-        "value":"afterDinner"
+        "value":"after-dinner"
       }
     ]
   },
@@ -106,7 +106,7 @@
       {
         "text": "I don't mind",
         "nextIndex": 5,
-        "value":"Idk"
+        "value":"idK"
       }
     ]
   },
@@ -144,7 +144,7 @@
       {
         "text": "I don't mind",
         "nextIndex": 5,
-        "value":"idk"
+        "value":"idK"
       }
     ]
   },
