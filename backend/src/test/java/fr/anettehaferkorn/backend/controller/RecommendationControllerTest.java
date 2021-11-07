@@ -35,13 +35,6 @@ class RecommendationControllerTest {
             //Given
             String URL = "http://localhost:" + port + "/recommendation";
             WineQuery wineQuery= new WineQuery("dinner","white","idK","light","dry");
-            //Mock
-            List<WineGrape>mockedRecommendations=List.of(
-                    new WineGrape("Merlot","dinner","red","France","light","sweet","abcd"),
-                    new WineGrape("BBBB","dinner","red","France","strong","dry","abcd"),
-                    new WineGrape("CCCC","dinner","red","France","strong","sweet","abcd")
-            );
-            when(wineGrapeRepository.findWineQueryDTOByOccasion(wineQuery.getOccasion())).thenReturn(mockedRecommendations);
 
             //When
             ResponseEntity<RecommendationDTO[]> response = testRestTemplate.postForEntity(URL, wineQuery, RecommendationDTO[].class);
@@ -55,14 +48,6 @@ class RecommendationControllerTest {
         //Given
         String URL = "http://localhost:" + port + "/recommendation";
         WineQuery wineQuery= new WineQuery("dinner","white","idK","light","dry");
-        //Mock
-        List<WineGrape>mockedRecommendations=List.of(
-                new WineGrape("Merlot","dinner","red","France","light","sweet","abcd"),
-                new WineGrape("BBBB","dinner","red","France","strong","dry","abcd"),
-                new WineGrape("CCCC","dinner","red","France","strong","sweet","abcd")
-        );
-        when(wineGrapeRepository.findWineQueryDTOByOccasion(wineQuery.getOccasion())).thenReturn(mockedRecommendations);
-
 
         //When
         ResponseEntity<RecommendationDTO[]> response = testRestTemplate.postForEntity(URL, wineQuery, RecommendationDTO[].class);
