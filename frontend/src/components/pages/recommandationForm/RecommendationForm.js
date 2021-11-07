@@ -6,7 +6,6 @@ import Summary from "./stepcomponents/Summary"
 import Step from "./stepcomponents/Step";
 import QuestionData from "./QuestionData.json"
 
-
 function RecommendationForm({handleSubmit,handleDataInput,wineConfiguration}) {
    const [step,setStep]=useState(0)
 
