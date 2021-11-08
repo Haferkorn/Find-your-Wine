@@ -59,5 +59,5 @@ function App() {
 export default App
 
 const PageLayout = styled.div`
-   background-color: #fffcf2;
+  width: 100%;
 `

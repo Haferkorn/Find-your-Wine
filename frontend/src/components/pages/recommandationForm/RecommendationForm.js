@@ -33,10 +33,11 @@ export default RecommendationForm
 const FormWrapper = styled.div`
    border: 1px solid #ccc5b9;
    border-radius: 20px;
-   margin: 20px;
+   max-width: 600px;
    font-family: "Montserrat", sans-serif;
    font-size: 15px;
    background-color: #e6e1d6;
+  margin: 90px 20px 20px 20px;
 `
 const MainHeading = styled.h2`
    font-size: 15px;
@@ -44,4 +45,5 @@ const MainHeading = styled.h2`
 `
 const StepWrapper = styled.section`
    margin: 10px;
+  
 `

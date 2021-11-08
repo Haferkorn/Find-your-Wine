@@ -39,6 +39,7 @@ const Heading = styled.h1`
    text-align: center;
    font-family: "Montserrat", sans-serif;
    font-size: 20px;
+  margin: 50px;
 `
 
 const Emphasis = styled.em`
@@ -51,16 +52,18 @@ const AnimationWrapper = styled.div`
 const ButtonWrapper = styled.div`
    display: flex;
    justify-content: center;
+  margin-top: 30px;
 `
 const StartButton = styled.button`
-   margin-bottom: 40px;
+  transition: all .2s ease-in-out;
+  margin-bottom: 40px;
    margin-top: 10px;
-   background: #e6e1d6;
+   background: #8b2635;
    border-radius: 6px;
    border: 0 solid #0d1b2a;
    display: inline-block;
    cursor: pointer;
-   color: #0d1b2a;
+   color: #ffff;
    font-family: "Montserrat", sans-serif;
    font-size: 15px;
    font-weight: bold;
@@ -69,5 +72,6 @@ const StartButton = styled.button`
    &:hover {
       background-color: #607466;
       color: #e6e1d6;
+     transform: scale(1.1);
    }
 `

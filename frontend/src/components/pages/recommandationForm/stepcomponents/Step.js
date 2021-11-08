@@ -17,9 +17,10 @@ function Step({question,handleDataInput,nextStep}){
 
     return(
         <form>
-            <h2>{question.title}</h2>
+            <h2>{question.question}</h2>
+            <InputWrapper>
             {question.answers.map(answer=>(
-                <div id={answer.value}>
+                <AnswerOption id={answer.value}>
                     <input
                         type="radio"
                         id={answer.nextIndex}
@@ -29,18 +30,38 @@ function Step({question,handleDataInput,nextStep}){
                         checked={answer.value === context}
                     />
                     <label htmlFor={answer.nextIndex}>{answer.text}</label>
-                </div>
+                </AnswerOption>
             ))}
+            </InputWrapper>
+            <ButtonWrapper>
             <NextButton type={"button"} onClick={() => nextStep(nextIndex)}>
                 next
             </NextButton>
+            </ButtonWrapper>
         </form>
     )
 }export default Step
 
+const InputWrapper=styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 21px;
+  grid-row-gap: 21px;
+`
+
+const AnswerOption=styled.div`
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid #a38b7a;
+`
+const ButtonWrapper=styled.div`
+  display: flex;
+  justify-content: flex-end;
+`
 export const NextButton = styled.button`
    margin-bottom: 40px;
-   margin-top: 10px;
+   margin-top: 30px;
    background: #e6e1d6;
    border-radius: 6px;
    border: 1px solid #0d1b2a;
