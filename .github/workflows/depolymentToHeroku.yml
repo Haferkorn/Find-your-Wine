@@ -45,8 +45,8 @@ jobs:
         run: mvn -B package --file backend/pom.xml
       - uses: actions/upload-artifact@v2
         with:
-          name: devquizmuster.jar
-          path: backend/target/devquizmuster.jar
+          name: app.jar
+          path: backend/target/app.jar
 
   deploy-heroku:
     runs-on: ubuntu-latest
