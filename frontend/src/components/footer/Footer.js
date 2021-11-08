@@ -14,7 +14,7 @@ export default Footer
 const FooterWrapper = styled.div`
    position: fixed;
    bottom: 0;
-   margin-top: 50px;
+   margin-top: 100px;
    width: 100%;
    height: 100px;
    background-color: #6d7072;

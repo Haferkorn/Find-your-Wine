@@ -28,11 +28,14 @@ function Recommendations({recommendations}){
 export default Recommendations
 
 const RecommendationContainer=styled.div`
-display: flex;
+  display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
+  
 `
 
 const Heading=styled.h2`
 font-family: "Montserrat",sans-serif;
+  text-align: center;
 `
