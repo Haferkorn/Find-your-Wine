@@ -16,7 +16,7 @@
       {
         "text": "After Dinner",
         "nextIndex": 1,
-        "value":"afterDinner"
+        "value":"after-dinner"
       }
     ]
   },
@@ -78,39 +78,35 @@
     "answers":[
 
       {
-        "text": "North-Central Europe",
+        "text": "France",
         "nextIndex":5,
-        "value":"north_central_europe"
+        "value":"France"
       },
       {
-        "text": "South-Europe",
+        "text": "Germany",
         "nextIndex": 5,
-        "value":"south_europe"
+        "value":"Germany"
       },
       {
-        "text": "North-America",
+        "text": "Italy",
         "nextIndex": 5,
-        "value":"north_america"
+        "value":"Italy"
       },
       {
-        "text": "South-America",
+        "text": "Spain",
         "nextIndex": 5,
-        "value":"south_america"
-      },
-      {
-        "text": "Africa",
-        "nextIndex": 5,
-        "value":"africa"
-      },
-      {
-        "text": "Asia",
-        "nextIndex": 5,
-        "value":"asia"
+        "value":"Spain"
       },
       {
         "text": "Other",
         "nextIndex": 5,
         "value":"other"
+      }
+    ,
+      {
+        "text": "I don't mind",
+        "nextIndex": 5,
+        "value":"idK"
       }
     ]
   },
@@ -120,39 +116,35 @@
     "answers":[
 
       {
-        "text": "North-Central Europe",
+        "text": "France",
         "nextIndex":5,
-        "value":"north_central_europe"
+        "value":"France"
       },
       {
-        "text": "South-Europe",
+        "text": "Germany",
         "nextIndex": 5,
-        "value":"south_europe"
+        "value":"Germany"
       },
       {
-        "text": "North-America",
+        "text": "Italy",
         "nextIndex": 5,
-        "value":"north_america"
+        "value":"Italy"
       },
       {
-        "text": "South-America",
+        "text": "Spain",
         "nextIndex": 5,
-        "value":"south_america"
-      },
-      {
-        "text": "Africa",
-        "nextIndex": 5,
-        "value":"africa"
-      },
-      {
-        "text": "Asia",
-        "nextIndex": 5,
-        "value":"asia"
+        "value":"Spain"
       },
       {
         "text": "Other",
         "nextIndex": 5,
-        "value":"other"
+        "value":"Other"
+      }
+    ,
+      {
+        "text": "I don't mind",
+        "nextIndex": 5,
+        "value":"idK"
       }
     ]
   },
@@ -175,7 +167,7 @@
       {
         "text": "I don't mind",
         "nextIndex": 6,
-        "value":"IdK"
+        "value":"idK"
       }
     ]
   },
@@ -190,14 +182,19 @@
         "value":"sweet"
       },
       {
-        "text": "Brut (sour)",
+        "text": "Dry",
         "nextIndex": 7,
-        "value":"brut"
+        "value":"dry"
+      },
+      {
+        "text": "Semi-Dry",
+        "nextIndex": 7,
+        "value":"semi-dry"
       },
       {
         "text": "I don't mind",
         "nextIndex": 7,
-        "value":"IdK"
+        "value":"idK"
       }
     ]
   }
