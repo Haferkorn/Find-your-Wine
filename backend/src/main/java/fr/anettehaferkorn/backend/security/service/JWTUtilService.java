@@ -2,7 +2,6 @@ package fr.anettehaferkorn.backend.security.service;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +17,6 @@ public class JWTUtilService {
 
     @Value("${jwt.secret.duration.hours}")
     private int JWT_DURATION_HOURS;
-    private Object SignatureAlgorithm;
 
     public String createToken(Map<String, Object> claims, String toAuthorize) {
         //Generate JWT
