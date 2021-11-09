@@ -2,6 +2,7 @@
   {
     "question":"For which Occasion are you looking for a wine?",
     "key":"occasion",
+    "prevIndex": false,
     "answers":[
       {
         "text": "Apéro",
@@ -23,6 +24,7 @@
 {
   "question":"What is your favorite wine style?",
   "key":"wineStyle",
+  "prevIndex": 0,
   "answers":[
     {
       "text": "Red",
@@ -49,6 +51,7 @@
   {
     "question":"What will be your meal?",
     "key":"wineStyle",
+    "prevIndex": 0,
     "answers":[
       {
         "text": "Red Meat",
@@ -75,6 +78,7 @@
   {
     "question":"If you had to associate your food with a region, which one would it be?",
     "key":"region",
+    "prevIndex": 3,
     "answers":[
 
       {
@@ -113,6 +117,7 @@
   {
     "question":"If you had to choose a region where your wine is coming from, which one would it be?",
     "key":"region",
+    "prevIndex": 2,
     "answers":[
 
       {
@@ -152,6 +157,7 @@
   {
     "question":"How strong should your wine be?",
     "key":"alcohol",
+    "prevIndex": 4,
     "answers":[
 
       {
@@ -174,6 +180,7 @@
   {
     "question":"Which flavor characteristic do you like the most?",
     "key":"taste",
+    "prevIndex": 5,
     "answers":[
 
       {

@@ -34,9 +34,13 @@ function Step({question,handleDataInput,nextStep}){
             ))}
             </InputWrapper>
             <ButtonWrapper>
+              <BackButton disabled={!question.prevIndex?"true":""} type={"button"} onClick={() => nextStep(question.prevIndex)}>
+                    back
+                </BackButton>
             <NextButton type={"button"} onClick={() => nextStep(nextIndex)}>
                 next
             </NextButton>
+
             </ButtonWrapper>
         </form>
     )
@@ -58,6 +62,7 @@ const AnswerOption=styled.div`
 const ButtonWrapper=styled.div`
   display: flex;
   justify-content: flex-end;
+  gap: 10px;
 `
 export const NextButton = styled.button`
    margin-bottom: 40px;
@@ -77,4 +82,23 @@ export const NextButton = styled.button`
       background-color: #607466;
       color: #e6e1d6;
    }
+`
+const BackButton=styled.button`
+  margin-bottom: 40px;
+  margin-top: 30px;
+  background: #e6e1d6;
+  border-radius: 6px;
+  border: 1px solid #0d1b2a;
+  display: inline-block;
+  cursor: pointer;
+  color: #0d1b2a;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 6px 24px;
+  text-decoration: none;
+  &:hover {
+    background-color: #607466;
+    color: #e6e1d6;
+  }
 `
