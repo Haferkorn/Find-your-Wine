@@ -12,16 +12,13 @@ function RecommendationForm({handleSubmit,handleDataInput,wineConfiguration}) {
    const nextStep = (value) => {
       setStep(parseInt(value))
    }
-   const stepBack=(value)=>{
-       setStep(parseInt(value))
-   }
 
    return (
       <FormWrapper>
          <MainHeading>Let's find your wine</MainHeading>
          <StepWrapper>
             {step!==7?
-               <Step question={QuestionData[step]} handleDataInput={handleDataInput} nextStep={nextStep} stepBack={stepBack}/>:
+               <Step question={QuestionData[step]} handleDataInput={handleDataInput} nextStep={nextStep}/>:
                <Summary
                wineConfiguration={wineConfiguration}
                handleSubmit={handleSubmit}
