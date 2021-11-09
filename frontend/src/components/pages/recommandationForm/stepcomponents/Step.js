@@ -20,7 +20,7 @@ function Step({question,handleDataInput,nextStep}){
             <h2>{question.question}</h2>
             <InputWrapper>
             {question.answers.map(answer=>(
-                <AnswerOption id={answer.value}>
+                <AnswerOption key={answer.value}>
                     <input
                         type="radio"
                         id={answer.nextIndex}

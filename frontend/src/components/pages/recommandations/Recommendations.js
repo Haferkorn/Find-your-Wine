@@ -7,7 +7,10 @@ function Recommendations({recommendations}){
         <div>
             <Heading>Your Recommendations:</Heading>
             <RecommendationContainer>
-            {recommendations.map(wine=>(
+                {recommendations===undefined?
+                <Heading>No Matching wines</Heading>
+                    :<div>
+                {recommendations.map(wine=>(
                 <div key={wine.name}>
                     <Recommendation
                         name={wine.name}
@@ -19,8 +22,8 @@ function Recommendations({recommendations}){
                         match={wine.matchingPoints}
                         description={wine.description}
                     />
-                </div>
-            ))}
+                </div>)
+                    )}</div>}
             </RecommendationContainer>
         </div>
     )
