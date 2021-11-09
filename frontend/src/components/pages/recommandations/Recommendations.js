@@ -8,7 +8,7 @@ function Recommendations({recommendations}){
             <Heading>Your Recommendations:</Heading>
             <RecommendationContainer>
                 {recommendations===undefined?
-                <h2>No Matching wines</h2>
+                <Heading>No Matching wines</Heading>
                     :<div>
                 {recommendations.map(wine=>(
                 <div key={wine.name}>
