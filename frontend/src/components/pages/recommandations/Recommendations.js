@@ -32,8 +32,6 @@ function Recommendations({recommendations}){
 export default Recommendations
 
 const RecommendationContainer=styled.div`
-  display: flex;
-  flex-flow: wrap;
   justify-content: center;
 `
 
