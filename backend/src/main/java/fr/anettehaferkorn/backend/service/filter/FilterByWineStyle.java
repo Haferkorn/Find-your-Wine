@@ -20,9 +20,6 @@ public class FilterByWineStyle {
                 }
             }
         }
-        if(filteredWineGrapes.isEmpty()){
-            throw new NoMatchingWineException("There is no Matching Wine to WineStyle");
-        }
         return filteredWineGrapes;
     }
 
