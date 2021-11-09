@@ -2,7 +2,7 @@
   {
     "question":"For which Occasion are you looking for a wine?",
     "key":"occasion",
-    "prevIndex": false,
+    "prevIndex": 0,
     "answers":[
       {
         "text": "Apéro",
