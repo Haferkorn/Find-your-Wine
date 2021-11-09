@@ -34,9 +34,13 @@ function Step({question,handleDataInput,nextStep}){
             ))}
             </InputWrapper>
             <ButtonWrapper>
+              <NextButton disabled={!question.prevIndex?"true":""} type={"button"} onClick={() => nextStep(question.prevIndex)}>
+                    back
+                </NextButton>
             <NextButton type={"button"} onClick={() => nextStep(nextIndex)}>
                 next
             </NextButton>
+
             </ButtonWrapper>
         </form>
     )
@@ -58,6 +62,7 @@ const AnswerOption=styled.div`
 const ButtonWrapper=styled.div`
   display: flex;
   justify-content: flex-end;
+  gap: 10px;
 `
 export const NextButton = styled.button`
    margin-bottom: 40px;
