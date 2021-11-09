@@ -45,7 +45,7 @@ const Heading = styled.h1`
 const Emphasis = styled.em`
    text-decoration: underline;
 `
-const AnimationWrapper = styled.div`
+export const AnimationWrapper = styled.div`
     
 `
 

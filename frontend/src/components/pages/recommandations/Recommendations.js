@@ -1,5 +1,6 @@
 import Recommendation from "./Recommendation";
 import styled from "styled-components/macro";
+import NoMatch from "./NoMatch";
 
 
 function Recommendations({recommendations}){
@@ -8,7 +9,7 @@ function Recommendations({recommendations}){
             <Heading>Your Recommendations:</Heading>
             <RecommendationContainer>
                 {recommendations===undefined?
-                <Heading>No Matching wines</Heading>
+                <NoMatch/>
                     :<div>
                 {recommendations.map(wine=>(
                 <div key={wine.name}>
@@ -38,7 +39,7 @@ const RecommendationContainer=styled.div`
   
 `
 
-const Heading=styled.h2`
+export const Heading=styled.h2`
 font-family: "Montserrat",sans-serif;
   text-align: center;
 `
