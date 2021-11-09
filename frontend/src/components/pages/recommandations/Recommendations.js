@@ -33,10 +33,8 @@ export default Recommendations
 
 const RecommendationContainer=styled.div`
   display: flex;
-  flex-wrap: wrap;
+  flex-flow: wrap;
   justify-content: center;
-  gap: 20px;
-  
 `
 
 export const Heading=styled.h2`

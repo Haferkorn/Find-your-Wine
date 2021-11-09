@@ -14,6 +14,6 @@ export default Header
 
 const HeaderContainer = styled.div`
    background-color: #A54136;
-  width: 100%;
+    width: 100%;
 `
 
