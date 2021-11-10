@@ -10,7 +10,7 @@ function Recommendations({recommendations}){
             <RecommendationContainer>
                 {recommendations===undefined?
                 <NoMatch/>
-                    :<div>
+                    :<CardContainer>
                 {recommendations.map(wine=>(
                 <div key={wine.name}>
                     <Recommendation
@@ -24,7 +24,7 @@ function Recommendations({recommendations}){
                         description={wine.description}
                     />
                 </div>)
-                    )}</div>}
+                    )}</CardContainer>}
             </RecommendationContainer>
         </div>
     )
@@ -32,7 +32,11 @@ function Recommendations({recommendations}){
 export default Recommendations
 
 const RecommendationContainer=styled.div`
-  justify-content: center;
+  
+`
+const CardContainer=styled.div`
+  display: flex;
+  flex-wrap: wrap;
 `
 
 export const Heading=styled.h2`
