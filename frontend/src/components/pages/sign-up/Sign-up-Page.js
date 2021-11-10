@@ -1,12 +1,14 @@
 import {useState} from "react";
 import styled from "styled-components/macro";
 import {signUp} from "../../../utils/apiService/SignUpAPi";
+import {useHistory} from "react-router-dom";
 
 function SignUpPage(){
     const initialState = {
         username: '',
         password: '',
     }
+    const history=useHistory()
 
     const [credentials, setCredentials] = useState(initialState)
 
@@ -17,6 +19,7 @@ function SignUpPage(){
     const handleSubmit = event => {
         event.preventDefault()
         signUp(credentials)
+        history.push("/login")
     }
 
     return(
