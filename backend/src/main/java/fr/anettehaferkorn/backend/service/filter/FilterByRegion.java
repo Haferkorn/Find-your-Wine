@@ -9,7 +9,6 @@ import java.util.Objects;
 public class FilterByRegion {
 
     public static List<RecommendationDTO> matchByRegion(WineQuery wineQuery, List<RecommendationDTO> wineMatches){
-
         for (RecommendationDTO match: wineMatches) {
             if(Objects.equals(match.getRegion(), wineQuery.getRegion())||
                     (Objects.equals(wineQuery.getRegion(),"other"))||

@@ -1,5 +1,6 @@
 import Recommendation from "./Recommendation";
 import styled from "styled-components/macro";
+import NoMatch from "./NoMatch";
 
 
 function Recommendations({recommendations}){
@@ -7,7 +8,10 @@ function Recommendations({recommendations}){
         <div>
             <Heading>Your Recommendations:</Heading>
             <RecommendationContainer>
-            {recommendations.map(wine=>(
+                {recommendations===undefined?
+                <NoMatch/>
+                    :<CardContainer>
+                {recommendations.map(wine=>(
                 <div key={wine.name}>
                     <Recommendation
                         name={wine.name}
@@ -19,8 +23,8 @@ function Recommendations({recommendations}){
                         match={wine.matchingPoints}
                         description={wine.description}
                     />
-                </div>
-            ))}
+                </div>)
+                    )}</CardContainer>}
             </RecommendationContainer>
         </div>
     )
@@ -28,14 +32,14 @@ function Recommendations({recommendations}){
 export default Recommendations
 
 const RecommendationContainer=styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
   
 `
+const CardContainer=styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`
 
-const Heading=styled.h2`
+export const Heading=styled.h2`
 font-family: "Montserrat",sans-serif;
   text-align: center;
 `

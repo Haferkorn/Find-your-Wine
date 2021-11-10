@@ -41,11 +41,7 @@ public class MatchingService {
 
     private List<WineGrape> matchByOccasion(WineQuery wineQuery){
         List<WineGrape>filteredWineGrapes=wineGrapeRepository.findWineQueryDTOByOccasion(wineQuery.getOccasion());
-
-        if(filteredWineGrapes.isEmpty()){
-            throw new NoMatchingWineException("No matching wines");
-
-        }return filteredWineGrapes;
+        return filteredWineGrapes;
     }
 
     private List<RecommendationDTO> removeLowMatches(List<RecommendationDTO> matches){

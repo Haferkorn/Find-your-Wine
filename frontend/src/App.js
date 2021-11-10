@@ -60,4 +60,5 @@ export default App
 
 const PageLayout = styled.div`
   width: 100%;
+  padding-bottom:200px;
 `
