@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom'
 
 export const AuthContext = createContext({})
 
-export default function AuthProvider({ children }) {
+function AuthProvider({ children }) {
     const [token, setToken] = useState("")
     const history = useHistory()
 
@@ -22,4 +22,4 @@ export default function AuthProvider({ children }) {
             {children}
         </AuthContext.Provider>
     )
-}
+}export default AuthProvider
