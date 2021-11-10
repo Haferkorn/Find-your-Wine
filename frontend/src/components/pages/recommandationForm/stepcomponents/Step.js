@@ -21,7 +21,7 @@ function Step({question,handleDataInput,nextStep}){
             <InputWrapper>
             {question.answers.map(answer=>(
                 <AnswerOption key={answer.value}>
-                    <input
+                    <RadioButton
                         type="radio"
                         id={answer.nextIndex}
                         name={question.key}
@@ -29,22 +29,23 @@ function Step({question,handleDataInput,nextStep}){
                         onChange={handleChoice}
                         checked={answer.value === context}
                     />
-                    <label htmlFor={answer.nextIndex}>{answer.text}</label>
+                    <Label htmlFor={answer.nextIndex}>{answer.text}</Label>
                 </AnswerOption>
             ))}
             </InputWrapper>
             <ButtonWrapper>
               <BackButton disabled={question.prevIndex?"true":""}  onClick={() => nextStep(question.prevIndex)}>
-                    back
+                    Back
                 </BackButton>
             <NextButton type={"button"} onClick={() => nextStep(nextIndex)}>
-                next
+                Next
             </NextButton>
 
             </ButtonWrapper>
         </form>
     )
 }export default Step
+
 
 const InputWrapper=styled.div`
   display: grid;
@@ -61,7 +62,7 @@ const AnswerOption=styled.div`
 `
 const ButtonWrapper=styled.div`
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   gap: 10px;
 `
 export const NextButton = styled.button`
@@ -79,7 +80,7 @@ export const NextButton = styled.button`
    padding: 6px 24px;
    text-decoration: none;
    &:hover {
-      background-color: #607466;
+      background-color: #8b2635;
       color: #e6e1d6;
    }
 `
@@ -98,7 +99,23 @@ const BackButton=styled.button`
   padding: 6px 24px;
   text-decoration: none;
   &:hover {
-    background-color: #607466;
+    background-color: #8b2635;
     color: #e6e1d6;
   }
+`
+const RadioButton=styled.input`
+  margin: 0;
+  font: inherit;
+  color: currentColor;
+  width: 0.8em;
+  height: 0.8em;
+  border: 0.15em solid currentColor;
+  border-radius: 50%;
+  transform: translateY(-0.075em);
+  
+`
+const Label=styled.label`
+  margin-left: 10px;
+  color: #0d1b2a;
+  font-weight: bold;
 `

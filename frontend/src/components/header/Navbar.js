@@ -2,14 +2,15 @@ import { NavLink } from "react-router-dom"
 import styled from "styled-components/macro"
 import logo from "./logo.png";
 
+import {BiLogInCircle} from "react-icons/bi";
+
 function Navbar() {
    return (
       <NavBarContainer>
-          <LogoContainer src={logo} alt="Logo" />
          <NavItem to="/" exact>
-            Home
+             <LogoContainer src={logo} alt="Logo" />
          </NavItem>
-         <NavItem to="/login">Login</NavItem>
+         <NavItem to="/login"><LoginIcon size={30} color={"#fffcf2"}/></NavItem>
       </NavBarContainer>
    )
 }
@@ -18,9 +19,9 @@ export default Navbar
 const NavBarContainer = styled.section`
    display: flex;
    justify-content: center;
-   gap: 40px;
    background-color: #8B2635;
-  height: 100px
+    width: 100%;
+    height: 100px
   
 `
 const NavItem = styled(NavLink)`
@@ -31,7 +32,13 @@ const NavItem = styled(NavLink)`
   
 `
 const LogoContainer = styled.img`
-   height: 70%;
+  height: 200%;
   width: auto;
+  position: relative;
+  bottom: 20px;
   
+`
+const LoginIcon=styled(BiLogInCircle)`
+position: fixed;
+  right: 35px;
 `

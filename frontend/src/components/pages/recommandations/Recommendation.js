@@ -22,7 +22,7 @@ function Recommendation({name,occasion,wineStyle,region,alcohol,taste,match,desc
                 <ListItem>{alcohol}</ListItem>
             </ul>
             {displayButtons?<p>{description}</p>:
-           <Button onClick={handlestatus}><BsInfoCircle/> Read Descripton</Button>}
+           <Button onClick={handlestatus}><BsInfoCircle/> More</Button>}
 
         </RecommendationCard>
     )
@@ -30,9 +30,10 @@ function Recommendation({name,occasion,wineStyle,region,alcohol,taste,match,desc
 
 const RecommendationCard=styled.div`
   padding: 20px;
+  margin: 20px;
   border: 1px solid #a38b7a;
   border-radius: 10px;
-  width: 200px;
+  max-width: 300px;
   font-family: "Montserrat", sans-serif;
   box-shadow: 5px 5px 10px 1px #8b2635;
 `
@@ -44,19 +45,19 @@ const Button=styled.button`
   transition: all .2s ease-in-out;
   margin-bottom: 40px;
   margin-top: 10px;
-  background: #8b2635;
+  background: #e6e1d6;
   border-radius: 6px;
-  border: 0 solid #0d1b2a;
+  border: 1px solid #0d1b2a;
   display: inline-block;
   cursor: pointer;
-  color: #ffff;
+  color: #0d1b2a;
   font-family: "Montserrat", sans-serif;
   font-size: 15px;
   font-weight: bold;
   padding: 6px 24px;
   text-decoration: none;
   &:hover {
-    background-color: #607466;
+    background-color: #8b2635;
     color: #e6e1d6;
     transform: scale(1.1);
   }
