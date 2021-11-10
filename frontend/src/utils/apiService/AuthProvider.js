@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom'
 export const AuthContext = createContext({})
 
 function AuthProvider({ children }) {
-    const [token, setToken] = useState("")
+    const [token, setToken] = useState()
     const history = useHistory()
 
     const login = credentials => {

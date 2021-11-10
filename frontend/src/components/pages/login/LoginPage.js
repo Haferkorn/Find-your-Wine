@@ -1,6 +1,8 @@
 import {useContext, useState} from 'react'
-import {AuthContext} from "/frontend/src/utils/AuthProvider"
+import {AuthContext} from "../../../utils/apiService/AuthProvider";
 import styled from "styled-components/macro";
+import {useHistory} from "react-router-dom";
+
 
 const initialState = {
     username: '',
@@ -10,6 +12,7 @@ const initialState = {
 function LoginPage() {
     const [credentials, setCredentials] = useState(initialState)
     const {login} = useContext(AuthContext)
+    const history=useHistory()
 
     const handleChange = event => {
         setCredentials({...credentials, [event.target.name]: event.target.value})
@@ -20,8 +23,12 @@ function LoginPage() {
         login(credentials)
     }
 
+    const redirectToSignUp=()=>{
+        history.push("/sign-up")
+    }
 
     return (
+        <div>
         <Form onSubmit={handleSubmit}>
             <label htmlFor="username">
                 Username
@@ -36,7 +43,7 @@ function LoginPage() {
             />
 
             <label htmlFor="password">
-                Passwort </label>
+                Password </label>
             <input
                 type="password"
                 required
@@ -46,9 +53,10 @@ function LoginPage() {
                 onChange={handleChange}
             />
 
-            <button>Login</button>
-
+            <button>Sign in</button>
         </Form>
+        <button onClick={redirectToSignUp}  >Sign up</button>
+        </div>
     )
 }export default LoginPage
 

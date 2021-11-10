@@ -2,13 +2,14 @@ import "./App.css"
 import {Route, Switch, useHistory} from "react-router"
 import styled from "styled-components/macro"
 import Header from "./components/header/Header"
-import LoginPage from "./components/pages/LoginPage"
+import LoginPage from "./components/pages/login/LoginPage"
 import Homepage from "./components/pages/homepage/Homepage"
 import RecommendationForm from "./components/pages/recommandationForm/RecommendationForm"
 import Footer from "./components/footer/Footer"
 import Recommendations from "./components/pages/recommandations/Recommendations";
 import {useState} from "react";
 import {getRecommendations} from "./utils/apiService/WineAPIService";
+import SignUpPage from "./components/pages/sign-up/Sign-up-Page";
 
 function App() {
     const [wineConfiguration, setWineConfiguration] = useState({
@@ -39,8 +40,11 @@ function App() {
          <Header />
          <Switch>
             <Route path={"/login"}>
-               <LoginPage />
+               <LoginPage/>
             </Route>
+             <Route path={"/sign-up"}>
+                 <SignUpPage/>
+             </Route>
             <Route path="/" exact>
                <Homepage />
             </Route>
