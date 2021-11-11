@@ -91,19 +91,21 @@ function SignUpPage(){
     )
 }export default SignUpPage
 
-const PageLayout=styled.div`
+export const PageLayout=styled.div`
   padding: 10px;
   border-radius: 20px;
   margin: 20px;
 `
-const Textarea=styled.div`
+export const Textarea=styled.div`
 text-align: center;
+  font-family: "Montserrat",sans-serif;
 `
 const Formarea=styled.div`
+  font-family: "Montserrat",sans-serif;
   margin: 20px;
   padding: 10px;
 `
-const InputField=styled.input`
+export const InputField=styled.input`
   margin: 5px;
   padding: 5px;
   font-size: 16px;
@@ -117,7 +119,7 @@ const InputField=styled.input`
 `
 
 
-const Sign_inButton=styled.button`
+export const Sign_inButton=styled.button`
   transition: all .2s ease-in-out;
   margin-bottom: 40px;
   margin-top: 30px;
@@ -137,9 +139,7 @@ const Sign_inButton=styled.button`
     color: #e6e1d6;
     transform: scale(1.1);
   }
-    
 `
-
 
 const Form = styled.form`
   display: flex;

@@ -2,6 +2,7 @@ import {useContext, useState} from 'react'
 import {AuthContext} from "../../../utils/apiService/AuthProvider";
 import styled from "styled-components/macro";
 import {useHistory} from "react-router-dom";
+import {InputField, PageLayout, Sign_inButton, Textarea} from "../sign-up/Sign-up-Page";
 
 
 const initialState = {
@@ -28,12 +29,16 @@ function LoginPage() {
     }
 
     return (
-        <div>
+        <PageLayout>
+            <Textarea>
+                <h2>Welcome back at <strong>Find Your Wine</strong></h2>
+                <p>Login to your account:</p>
+            </Textarea>
         <Form onSubmit={handleSubmit}>
             <label htmlFor="username">
                 Username
             </label>
-            <input
+            <InputField
                 type="text"
                 required
                 value={credentials.username}
@@ -44,7 +49,7 @@ function LoginPage() {
 
             <label htmlFor="password">
                 Password </label>
-            <input
+            <InputField
                 type="password"
                 required
                 value={credentials.password}
@@ -53,17 +58,29 @@ function LoginPage() {
                 onChange={handleChange}
             />
 
-            <button>Sign in</button>
+            <Sign_inButton>Sign in</Sign_inButton>
         </Form>
-        <button onClick={redirectToSignUp}  >Sign up</button>
-        </div>
+            <hr/>
+            <Sign_UP_Wrapper>
+                <h3>You have no account yet? Sign-up</h3>
+                <Sign_inButton onClick={redirectToSignUp}  >Sign up</Sign_inButton>
+            </Sign_UP_Wrapper>
+        </PageLayout>
     )
 }export default LoginPage
 
 const Form = styled.form`
+  font-family: "Montserrat",sans-serif;
+  font-weight: bold;
   display: flex;
   justify-content: space-between;
   gap: 15px;
   align-items: center;
   flex-direction: column;
+`
+
+const Sign_UP_Wrapper=styled.div`
+  font-family: "Montserrat",sans-serif;
+text-align: center;
+  justify-items: center;
 `
