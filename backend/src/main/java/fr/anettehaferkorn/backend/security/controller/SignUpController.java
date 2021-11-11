@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/auth/createUser")
-public class CreateUserController {
+public class SignUpController {
     private CreateUserService createUserService;
 
     @Autowired
-    public CreateUserController(CreateUserService createUserService) {
+    public SignUpController(CreateUserService createUserService) {
         this.createUserService = createUserService;
     }
 
