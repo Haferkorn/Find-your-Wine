@@ -53,20 +53,5 @@ class LoginControllerTest {
         assertThat(body.getSubject(), is("unitTestUser"));
     }
 
-/*
-    @Test
-    @DisplayName("Should return Error with BadCredentials")
-    void loginWithInvalidCredentials() {
-        //GIVEN
-        appUserRepo.save(AppUserDTO.builder()
-                .username("unitTestUser")
-                .password(passwordEncoder.encode("1234"))
-                .build());
-        //WHEN
-        AppUserDTO loginCredentials = AppUserDTO.builder().username("unitTestUser").password("WRONG_PASSWORD").build();
-        ResponseEntity<String> response = restTemplate.postForEntity("/auth/login", loginCredentials, String.class);
-        //THEN
-        Assertions.assertThrows(BadCredentialsException.class, () -> )
 
-    }*/
 }
