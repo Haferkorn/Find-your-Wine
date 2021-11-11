@@ -48,7 +48,6 @@ class SignUpControllerTest {
         assertNotNull(createdUser);
 
         //Test equality
-
         assertEquals(createdUser.get().getUsername(),testUser.getUsername());
 
 
