@@ -152,5 +152,5 @@ const PasswordInput=styled.div`
   border-radius: 10px;
   background-color: ${props=>
           props.colorValue==="initial" ? "#fffcf2" :
-                  props.colorValue==="correct"? "#A4D4B4": "#FCAA90"}
+                  props.colorValue==="correct"? "#607466": "#8b2635"}
 `
