@@ -34,7 +34,7 @@ function Step({question,handleDataInput,nextStep}){
             ))}
             </InputWrapper>
             <ButtonWrapper>
-              <BackButton disabled={question.prevIndex?"true":""}  onClick={() => nextStep(question.prevIndex)}>
+              <BackButton onClick={() => nextStep(question.prevIndex)}>
                     Back
                 </BackButton>
             <NextButton type={"button"} onClick={() => nextStep(nextIndex)}>

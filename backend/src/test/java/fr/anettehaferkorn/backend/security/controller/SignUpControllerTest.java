@@ -33,7 +33,6 @@ class SignUpControllerTest {
 
     @Test
     void createUser() {
-
         //Given
         String URL = "http://localhost:" + port + "/auth/createUser";
        AppUserDTO testUser= new AppUserDTO("Pferd","hase");
@@ -49,8 +48,6 @@ class SignUpControllerTest {
 
         //Test equality
         assertEquals(createdUser.get().getUsername(),testUser.getUsername());
-
-
 
     }
 
