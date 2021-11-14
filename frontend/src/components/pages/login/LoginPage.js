@@ -2,7 +2,7 @@ import {useContext, useState} from 'react'
 import {AuthContext} from "../../../utils/apiService/AuthProvider";
 import styled from "styled-components/macro";
 import {useHistory} from "react-router-dom";
-import {InputField, PageLayout, Sign_inButton, Textarea} from "../sign-up/Sign-up-Page";
+import {InputField, PageLayout, SignInButton, Textarea} from "../sign-up/Sign-up-Page";
 
 
 const initialState = {
@@ -58,13 +58,13 @@ function LoginPage() {
                 onChange={handleChange}
             />
 
-            <Sign_inButton>Sign in</Sign_inButton>
+            <SignInButton>Sign in</SignInButton>
         </Form>
             <hr/>
-            <Sign_UP_Wrapper>
+            <SignUpWrapper>
                 <h3>You have no account yet? Sign-up</h3>
-                <Sign_inButton onClick={redirectToSignUp}  >Sign up</Sign_inButton>
-            </Sign_UP_Wrapper>
+                <SignInButton onClick={redirectToSignUp}  >Sign up</SignInButton>
+            </SignUpWrapper>
         </PageLayout>
     )
 }export default LoginPage
@@ -79,7 +79,7 @@ const Form = styled.form`
   flex-direction: column;
 `
 
-const Sign_UP_Wrapper=styled.div`
+const SignUpWrapper=styled.div`
   font-family: "Montserrat",sans-serif;
 text-align: center;
   justify-items: center;
