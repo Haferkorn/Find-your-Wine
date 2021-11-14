@@ -1,0 +1,86 @@
+import {useContext, useState} from 'react'
+import {AuthContext} from "../../../utils/apiService/AuthProvider";
+import styled from "styled-components/macro";
+import {useHistory} from "react-router-dom";
+import {InputField, PageLayout, Sign_inButton, Textarea} from "../sign-up/Sign-up-Page";
+
+
+const initialState = {
+    username: '',
+    password: '',
+}
+
+function LoginPage() {
+    const [credentials, setCredentials] = useState(initialState)
+    const {login} = useContext(AuthContext)
+    const history=useHistory()
+
+    const handleChange = event => {
+        setCredentials({...credentials, [event.target.name]: event.target.value})
+    }
+
+    const handleSubmit = event => {
+        event.preventDefault()
+        login(credentials)
+    }
+
+    const redirectToSignUp=()=>{
+        history.push("/sign-up")
+    }
+
+    return (
+        <PageLayout>
+            <Textarea>
+                <h2>Welcome back at <strong>Find Your Wine</strong></h2>
+                <p>Login to your account:</p>
+            </Textarea>
+        <Form onSubmit={handleSubmit}>
+            <label htmlFor="username">
+                Username
+            </label>
+            <InputField
+                type="text"
+                required
+                value={credentials.username}
+                name="username"
+                id="username"
+                onChange={handleChange}
+            />
+
+            <label htmlFor="password">
+                Password </label>
+            <InputField
+                type="password"
+                required
+                value={credentials.password}
+                name="password"
+                id="password"
+                onChange={handleChange}
+            />
+
+            <Sign_inButton>Sign in</Sign_inButton>
+        </Form>
+            <hr/>
+            <Sign_UP_Wrapper>
+                <h3>You have no account yet? Sign-up</h3>
+                <Sign_inButton onClick={redirectToSignUp}  >Sign up</Sign_inButton>
+            </Sign_UP_Wrapper>
+        </PageLayout>
+    )
+}export default LoginPage
+
+const Form = styled.form`
+  font-family: "Montserrat",sans-serif;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  align-items: center;
+  flex-direction: column;
+`
+
+const Sign_UP_Wrapper=styled.div`
+  font-family: "Montserrat",sans-serif;
+text-align: center;
+  justify-items: center;
+`
