@@ -84,7 +84,7 @@ function SignUpPage(){
             />
             </PasswordInput>
 
-            <Sign_inButton>Sign in</Sign_inButton>
+            <SignInButton>Sign in</SignInButton>
         </Form>
             </Formarea>
     </PageLayout>
@@ -119,7 +119,7 @@ export const InputField=styled.input`
 `
 
 
-export const Sign_inButton=styled.button`
+export const SignInButton=styled.button`
   transition: all .2s ease-in-out;
   margin-bottom: 40px;
   margin-top: 30px;
