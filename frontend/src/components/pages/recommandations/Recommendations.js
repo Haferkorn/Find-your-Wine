@@ -37,6 +37,7 @@ const RecommendationContainer=styled.div`
 const CardContainer=styled.div`
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 `
 
 export const Heading=styled.h2`
