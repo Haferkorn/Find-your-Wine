@@ -1,14 +1,20 @@
 import styled from "styled-components/macro";
 import {BsInfoCircle} from "react-icons/bs";
 import {useState} from "react";
+import {useHistory} from "react-router-dom";
 
 function Recommendation({name,occasion,wineStyle,region,alcohol,taste,match,description}){
 
     const [displayButtons, setDisplaybuttons] = useState(false);
+    const history=useHistory();
 
     const handlestatus = () => {
         setDisplaybuttons(!displayButtons);
     };
+
+    const redirect=()=>{
+        history.push("/wineRanking");
+    }
 
     return(
         <RecommendationCard>
@@ -23,6 +29,7 @@ function Recommendation({name,occasion,wineStyle,region,alcohol,taste,match,desc
             </ul>
             {displayButtons?<p>{description}</p>:
            <Button onClick={handlestatus}><BsInfoCircle/> More</Button>}
+            <Button onClick={redirect}> Find matching wine</Button>
 
         </RecommendationCard>
     )

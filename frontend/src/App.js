@@ -10,6 +10,7 @@ import Recommendations from "./components/pages/recommandations/Recommendations"
 import {useState} from "react";
 import {getRecommendations} from "./utils/apiService/WineAPIService";
 import SignUpPage from "./components/pages/sign-up/Sign-up-Page";
+import WineRankingPage from "./components/pages/wineRanking/WineRankingPage";
 
 function App() {
     const [wineConfiguration, setWineConfiguration] = useState({
@@ -55,7 +56,7 @@ function App() {
                  <Recommendations recommendations={recommendations}/>
              </Route>
              <Route path="/wineRanking">
-                 <Recommendations recommendations={recommendations}/>
+                 <WineRankingPage/>
              </Route>
          </Switch>
          <Footer />
