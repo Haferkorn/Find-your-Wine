@@ -54,6 +54,9 @@ function App() {
              <Route path="/recommendations">
                  <Recommendations recommendations={recommendations}/>
              </Route>
+             <Route path="/wineRanking">
+                 <Recommendations recommendations={recommendations}/>
+             </Route>
          </Switch>
          <Footer />
       </PageLayout>
