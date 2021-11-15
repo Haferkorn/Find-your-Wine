@@ -13,7 +13,7 @@ function Recommendation({name,occasion,wineStyle,region,alcohol,taste,match,desc
     return(
         <RecommendationCard>
             <Name>{name}</Name>
-            <p>Matches with <b>{match}/3</b> of your critiera</p>
+            <p>Matches with <b>{Math.round((match/3)*100)}%</b> of your critiera</p>
             <ul>
                 <ListItem>{occasion}</ListItem>
                 <ListItem>{taste}</ListItem>
