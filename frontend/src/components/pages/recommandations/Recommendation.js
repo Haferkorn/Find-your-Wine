@@ -5,6 +5,18 @@ import {useHistory} from "react-router-dom";
 
 function Recommendation({name,occasion,wineStyle,region,alcohol,taste,match,description}){
 
+    const[wineData,setWineData]=useState({
+        "name":name,
+        "occasion":occasion,
+        "wineStyle":wineStyle,
+        "region":region,
+        "alcohol":alcohol,
+        "taste": taste,
+        "match": match,
+        "description":description
+
+    })
+
     const [displayButtons, setDisplaybuttons] = useState(false);
     const history=useHistory();
 
@@ -13,7 +25,7 @@ function Recommendation({name,occasion,wineStyle,region,alcohol,taste,match,desc
     };
 
     const redirect=()=>{
-        history.push("/wineRanking");
+        history.push("/wineRanking", {wineData: wineData});
     }
 
     return(
@@ -29,7 +41,7 @@ function Recommendation({name,occasion,wineStyle,region,alcohol,taste,match,desc
             </ul>
             {displayButtons?<p>{description}</p>:
            <Button onClick={handlestatus}><BsInfoCircle/> More</Button>}
-            <Button onClick={redirect}> Find matching wine</Button>
+            <Button onClick={()=>redirect(name)}> Find matching wine</Button>
 
         </RecommendationCard>
     )

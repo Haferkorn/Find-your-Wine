@@ -1,9 +1,21 @@
 import WineCard from "./WineCard";
-import {useState} from "react";
+import {useEffect, useState} from "react";
+import {useLocation} from "react-router";
 
-function WineRankingPage(){
+function WineRankingPage(props){
+
+    const [wineConfiguration,setWineConfiguration]=useState({})
+
+    const location=useLocation()
+
+
+    useEffect(() => {
+        console.log(location.state.wineData)
+        setWineConfiguration(location.state.wineData)
+        // eslint-disable-next-line
+    }, [])
+
     const [rankedWines,setRankedWines]=useState(["Wine","Wine2"])
-
 
     return(
         <div>
