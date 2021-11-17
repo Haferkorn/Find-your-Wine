@@ -1,8 +1,5 @@
 package fr.anettehaferkorn.backend.security.controller;
 
-import fr.anettehaferkorn.backend.model.RecommendationDTO;
-import fr.anettehaferkorn.backend.model.WineGrape;
-import fr.anettehaferkorn.backend.model.WineQuery;
 import fr.anettehaferkorn.backend.security.model.AppUserDTO;
 import fr.anettehaferkorn.backend.security.repo.AppUserRepo;
 import org.junit.jupiter.api.Test;
@@ -13,7 +10,6 @@ import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import java.util.List;
 import java.util.Optional;
 
 import static org.hamcrest.MatcherAssert.assertThat;
