@@ -21,7 +21,7 @@ public class WineDetailsAPI {
 
     @PostMapping
     public List<WineBottleDTO> getFilteredWines(@RequestBody FilterDTO filterDTO ){
-        return findYourWineService.getFilterdWines(filterDTO);
+        return findYourWineService.getFilteredWines(filterDTO);
     }
 
 
