@@ -31,4 +31,7 @@ public class FindYourWineService {
     }
 
 
+    public void addWine(WineBottleDTO wine) {
+        wineBottlesRepo.save(wine);
+    }
 }

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/filterWines")
+@RequestMapping("/api/")
 public class WineDetailsAPI {
 
     FindYourWineService findYourWineService;
@@ -19,9 +19,14 @@ public class WineDetailsAPI {
         this.findYourWineService = findYourWineService;
     }
 
-    @PostMapping
+    @PostMapping("filterwines")
     public List<WineBottleDTO> getFilteredWines(@RequestBody FilterDTO filterDTO ){
         return findYourWineService.getFilteredWines(filterDTO);
+    }
+
+    @PostMapping("/add-wine")
+    public void addWine(@RequestBody WineBottleDTO wine){
+        findYourWineService.addWine(wine);
     }
 
 
