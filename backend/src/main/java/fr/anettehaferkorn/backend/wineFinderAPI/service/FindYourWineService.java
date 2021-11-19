@@ -6,7 +6,8 @@ import fr.anettehaferkorn.backend.wineFinderAPI.repo.WineBottlesRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class FindYourWineService {
@@ -19,7 +20,15 @@ public class FindYourWineService {
     }
 
     public List<WineBottleDTO> getFilteredWines(FilterDTO filterDTO) {
-        return wineBottlesRepo.findAllByVarietyAndCountry(filterDTO.getVariety(), filterDTO.getRegion());
+        ArrayList<WineBottleDTO>wines= wineBottlesRepo.findAllByVarietyAndCountry(filterDTO.getVariety(), filterDTO.getRegion());
+        return filterByPoints(wines);
     }
+
+    public List<WineBottleDTO>filterByPoints(ArrayList<WineBottleDTO>bottels){
+        bottels.sort(Comparator.comparing(WineBottleDTO::getPoints));
+        Collections.reverse(bottels);
+        return bottels.stream().limit(5).collect(Collectors.toList());
+    }
+
 
 }

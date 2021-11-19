@@ -6,10 +6,11 @@ import org.springframework.data.repository.query.QueryByExampleExecutor;
 import org.springframework.stereotype.Repository;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
 public interface WineBottlesRepo extends PagingAndSortingRepository<WineBottleDTO, String>, QueryByExampleExecutor<WineBottleDTO> {
 
-    List<WineBottleDTO> findAllByVarietyAndCountry(String variety,String country);
+    ArrayList<WineBottleDTO> findAllByVarietyAndCountry(String variety, String country);
 }
