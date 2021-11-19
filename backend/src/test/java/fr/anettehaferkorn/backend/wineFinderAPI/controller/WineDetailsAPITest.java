@@ -74,7 +74,7 @@ class WineDetailsAPITest {
 
 
         //Given
-        String URL = "http://localhost:" + port + "/api/filterWines";
+        String URL = "http://localhost:" + port + "/api/filterwines";
         FilterDTO filterDTO= new FilterDTO("Merlot","France");
 
         //When
