@@ -57,7 +57,8 @@ const RecommendationCard=styled.div`
   box-shadow: 5px 5px 10px 1px #8b2635;
 `
 const Name=styled.h2`
-font-family: "Montserrat",sans-serif;
+  font-family: 'Tangerine', cursive;
+  font-size: 40px;
 `
 
 export const Button=styled.button`

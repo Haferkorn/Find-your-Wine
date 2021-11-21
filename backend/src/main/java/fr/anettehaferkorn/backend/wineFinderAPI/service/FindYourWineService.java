@@ -30,7 +30,6 @@ public class FindYourWineService {
         return bottels.stream().limit(5).collect(Collectors.toList());
     }
 
-
     public void addWine(WineBottleDTO wine) {
         wineBottlesRepo.save(wine);
     }
