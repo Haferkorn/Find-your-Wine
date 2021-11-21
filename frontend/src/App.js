@@ -11,6 +11,7 @@ import {useState} from "react";
 import {getRecommendations} from "./utils/apiService/WineAPIService";
 import SignUpPage from "./components/pages/sign-up/Sign-up-Page";
 import WineRankingPage from "./components/pages/wineRanking/WineRankingPage";
+import PrivateRoute from "./utils/PrivateRoute";
 
 function App() {
     const [wineConfiguration, setWineConfiguration] = useState({
@@ -55,9 +56,9 @@ function App() {
              <Route path="/recommendations">
                  <Recommendations recommendations={recommendations}/>
              </Route>
-             <Route path="/wineRanking">
+             <PrivateRoute path="/wineRanking">
                  <WineRankingPage/>
-             </Route>
+             </PrivateRoute>
          </Switch>
          <Footer />
       </PageLayout>

@@ -1,9 +1,27 @@
 import styled from "styled-components/macro";
+import {BsInfoCircle} from "react-icons/bs";
+import {useState} from "react";
+import {Button} from "../recommandations/Recommendation";
 
 function WineCard({wineData}){
+
+    const [displayButtons, setDisplaybuttons] = useState(false);
+
+    const handleStatus = () => {
+        setDisplaybuttons(!displayButtons);
+    };
+
     return(
         <WineCardContainer>
-            <h2>{wineData.title}</h2>
+            <Title>{wineData.title}</Title>
+            <hr/>
+            <h3>Grape: {wineData.variety}</h3>
+            <p>Quality: {wineData.points}/100 Points</p>
+            <p>Price: {wineData.price}€</p>
+            <p>Winery: {wineData.winery}, {wineData.country}</p>
+
+            {displayButtons?<p>{wineData.description}</p>:
+                <Button onClick={handleStatus}><BsInfoCircle/> More</Button>}
 
         </WineCardContainer>
     )
@@ -17,8 +35,12 @@ const WineCardContainer=styled.div`
   max-width: 300px;
   font-family: "Montserrat", sans-serif;
   box-shadow: 5px 5px 10px 1px #8b2635;
+  font-weight: bold;
 `
 
-const ListItem=styled.li`
-  list-style: circle outside;
+const Title=styled.h2`
+  font-family: 'Parisienne', cursive;
+  font-size: 40px;
+  margin-bottom: 5px;
+ 
 `

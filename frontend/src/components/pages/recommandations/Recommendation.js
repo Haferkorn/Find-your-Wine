@@ -17,11 +17,11 @@ function Recommendation({name,occasion,wineStyle,region,alcohol,taste,match,desc
 
     })
 
-    const [displayButtons, setDisplaybuttons] = useState(false);
+    const [displayButtons, setDisplayButtons] = useState(false);
     const history=useHistory();
 
-    const handlestatus = () => {
-        setDisplaybuttons(!displayButtons);
+    const handleStatus = () => {
+        setDisplayButtons(!displayButtons);
     };
 
     const redirect=()=>{
@@ -31,7 +31,7 @@ function Recommendation({name,occasion,wineStyle,region,alcohol,taste,match,desc
     return(
         <RecommendationCard>
             <Name>{name}</Name>
-            <p>Matches with <b>{Math.round((match/3)*100)}%</b> of your critiera</p>
+            <p>Matches with <b>{Math.round((match/3)*100)}%</b> of your criteria</p>
             <ul>
                 <ListItem>{occasion}</ListItem>
                 <ListItem>{taste}</ListItem>
@@ -40,8 +40,8 @@ function Recommendation({name,occasion,wineStyle,region,alcohol,taste,match,desc
                 <ListItem>{alcohol}</ListItem>
             </ul>
             {displayButtons?<p>{description}</p>:
-           <Button onClick={handlestatus}><BsInfoCircle/> More</Button>}
-            <Button onClick={()=>redirect(name)}> Find matching wine</Button>
+           <Button onClick={handleStatus}><BsInfoCircle/> More</Button>}
+            <Button onClick={()=>redirect()}> Find matching wine</Button>
 
         </RecommendationCard>
     )
@@ -60,7 +60,7 @@ const Name=styled.h2`
 font-family: "Montserrat",sans-serif;
 `
 
-const Button=styled.button`
+export const Button=styled.button`
   transition: all .2s ease-in-out;
   margin-bottom: 40px;
   margin-top: 10px;

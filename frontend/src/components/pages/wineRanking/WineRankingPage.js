@@ -1,7 +1,8 @@
 import WineCard from "./WineCard";
 import {useEffect, useState} from "react";
 import {useLocation} from "react-router";
-import {getWineBottels} from "../../../utils/apiService/WineAPIService";
+import {getWineBottles} from "../../../utils/apiService/WineAPIService";
+import styled from "styled-components/macro";
 
 function WineRankingPage(props){
 
@@ -14,14 +15,13 @@ function WineRankingPage(props){
         region:wineConfiguration.region
     }
 
-
     useEffect(() => {
         setWineConfiguration(location.state.wineData)
 
     }, [])
 
     useEffect(()=>{
-        getWineBottels(filterQuery).then(result =>{
+        getWineBottles(filterQuery).then(result =>{
             setRankedWines(result)
         })
         // eslint-disable-next-line
@@ -30,10 +30,16 @@ function WineRankingPage(props){
     const [rankedWines,setRankedWines]=useState([])
 
     return(
-        <div>
+        <WineContainer>
             {rankedWines.map(wine=>(
             <WineCard wineData={wine}/>
         ))}
-        </div>
+        </WineContainer>
     )
 }export default WineRankingPage
+
+const WineContainer=styled.div`
+display: flex;
+  justify-content: center;
+`
+
