@@ -8,7 +8,7 @@ export function getRecommendations(WineQuery){
         .catch(console.error)
 }
 
-export function getWineBottels(FilterQuery){
+export function getWineBottles(FilterQuery){
 
     return axios
         .post('/api/filterwines', FilterQuery )

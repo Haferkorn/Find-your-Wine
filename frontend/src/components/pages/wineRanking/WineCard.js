@@ -40,7 +40,7 @@ const WineCardContainer=styled.div`
 
 const Title=styled.h2`
   font-family: 'Parisienne', cursive;
-  font-size: 40px;
+  font-size: 30px;
   margin-bottom: 5px;
  
 `

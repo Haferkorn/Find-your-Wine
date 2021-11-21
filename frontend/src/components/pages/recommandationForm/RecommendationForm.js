@@ -59,5 +59,8 @@ const MainHeading = styled.h2`
 `
 const StepWrapper = styled.section`
    margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   
 `
