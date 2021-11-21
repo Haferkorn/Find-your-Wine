@@ -3,6 +3,7 @@ import {useEffect, useState} from "react";
 import {useLocation} from "react-router";
 import {getWineBottles} from "../../../utils/apiService/WineAPIService";
 import styled from "styled-components/macro";
+import NoMatch from "../recommandations/NoMatch";
 
 function WineRankingPage(props){
 
@@ -31,9 +32,11 @@ function WineRankingPage(props){
 
     return(
         <WineContainer>
+            {rankedWines&&rankedWines.length===0?
+                <NoMatch/>:<div>
             {rankedWines.map(wine=>(
             <WineCard wineData={wine}/>
-        ))}
+        ))}</div>}
         </WineContainer>
     )
 }export default WineRankingPage
