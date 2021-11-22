@@ -9,7 +9,7 @@ import Footer from "./components/footer/Footer"
 import Recommendations from "./components/pages/recommandations/Recommendations"
 import { useState } from "react"
 import { getRecommendations } from "./utils/apiService/WineAPIService"
-import SignUpPage from "./components/pages/sign-up/Sign-up-Page"
+import SignUpPage from "./components/pages/signUp/SignUpPage"
 import WineRankingPage from "./components/pages/wineRanking/WineRankingPage"
 import PrivateRoute from "./utils/PrivateRoute"
 

@@ -7,7 +7,7 @@ import {
    PageLayout,
    SignInButton,
    Textarea,
-} from "../sign-up/Sign-up-Page"
+} from "../signUp/SignUpPage"
 
 const initialState = {
    username: "",
