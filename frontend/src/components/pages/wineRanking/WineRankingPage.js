@@ -5,7 +5,7 @@ import {getWineBottles} from "../../../utils/apiService/WineAPIService";
 import styled from "styled-components/macro";
 import NoMatch from "../recommandations/NoMatch";
 
-function WineRankingPage(props){
+function WineRankingPage(){
 
     const [wineConfiguration,setWineConfiguration]=useState({})
 
@@ -18,7 +18,7 @@ function WineRankingPage(props){
 
     useEffect(() => {
         setWineConfiguration(location.state.wineData)
-
+        // eslint-disable-next-line
     }, [])
 
     useEffect(()=>{

@@ -5,7 +5,7 @@ import {useHistory} from "react-router-dom";
 
 function Recommendation({name,occasion,wineStyle,region,alcohol,taste,match,description}){
 
-    const[wineData,setWineData]=useState({
+    const[wineData]=useState({
         "name":name,
         "occasion":occasion,
         "wineStyle":wineStyle,
