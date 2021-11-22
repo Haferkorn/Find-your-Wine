@@ -1,8 +1,6 @@
 import styled from "styled-components/macro"
 import Navbar from "./Navbar"
 
-
-
 function Header() {
    return (
       <HeaderContainer>
@@ -13,7 +11,6 @@ function Header() {
 export default Header
 
 const HeaderContainer = styled.div`
-   background-color: #A54136;
-    width: 100%;
+   background-color: #a54136;
+   width: 100%;
 `
-

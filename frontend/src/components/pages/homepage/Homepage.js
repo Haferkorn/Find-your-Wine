@@ -39,24 +39,22 @@ const Heading = styled.h1`
    text-align: center;
    font-family: "Montserrat", sans-serif;
    font-size: 20px;
-  margin: 50px;
+   margin: 50px;
 `
 
 const Emphasis = styled.em`
    text-decoration: underline;
 `
-export const AnimationWrapper = styled.div`
-    
-`
+export const AnimationWrapper = styled.div``
 
 const ButtonWrapper = styled.div`
    display: flex;
    justify-content: center;
-  margin-top: 30px;
+   margin-top: 30px;
 `
 const StartButton = styled.button`
-  transition: all .2s ease-in-out;
-  margin-bottom: 40px;
+   transition: all 0.2s ease-in-out;
+   margin-bottom: 40px;
    margin-top: 10px;
    background: #8b2635;
    border-radius: 6px;
@@ -72,6 +70,6 @@ const StartButton = styled.button`
    &:hover {
       background-color: #607466;
       color: #e6e1d6;
-     transform: scale(1.1);
+      transform: scale(1.1);
    }
 `
