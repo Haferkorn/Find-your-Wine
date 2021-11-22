@@ -35,7 +35,8 @@ function WineRankingPage(){
             {rankedWines&&rankedWines.length===0?
                 <NoMatch/>:<div>
             {rankedWines.map(wine=>(
-            <WineCard wineData={wine}/>
+                <div key={wine.id}>
+                    <WineCard  wineData={wine}/></div>
         ))}</div>}
         </WineContainer>
     )
