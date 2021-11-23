@@ -21,7 +21,7 @@ function WineRankingPage() {
    }, [])
 
    useEffect(() => {
-      getWineBottles(filterQuery).then((result) => {
+     getWineBottles(filterQuery).then((result) => {
          setRankedWines(result)
       })
       // eslint-disable-next-line
