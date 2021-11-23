@@ -18,7 +18,7 @@ function RecommendationForm({
    }
 
    return (
-      <section>
+      <ComponentWrapper>
          <FormContainer>
             <FormWrapper>
                <MainHeading>Let's find your wine</MainHeading>
@@ -38,10 +38,17 @@ function RecommendationForm({
                </StepWrapper>
             </FormWrapper>
          </FormContainer>
-      </section>
+      </ComponentWrapper>
    )
 }
 export default RecommendationForm
+
+const ComponentWrapper=styled.section`
+   display:flex;
+   justify-content: center;
+   align-items: center;
+
+`
 
 const FormContainer = styled.div`
    background: rgb(139, 38, 53);
@@ -56,6 +63,7 @@ const FormContainer = styled.div`
    padding: 7px;
    max-width: 600px;
    box-shadow: 5px 5px 15px 5px #0d1b2a;
+ 
 `
 
 const FormWrapper = styled.div`
@@ -72,7 +80,5 @@ const MainHeading = styled.h2`
 `
 const StepWrapper = styled.section`
    margin: 10px;
-   display: flex;
-   justify-content: center;
-   align-items: center;
+   
 `
