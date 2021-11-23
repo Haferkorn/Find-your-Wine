@@ -4,6 +4,7 @@ import { useLocation } from "react-router"
 import { getWineBottles } from "../../../utils/apiService/WineAPIService"
 import styled from "styled-components/macro"
 import NoMatch from "../recommandations/NoMatch"
+import WineBackground from "./WineBackground.png"
 
 function WineRankingPage() {
    const [wineConfiguration, setWineConfiguration] = useState({})
@@ -48,6 +49,11 @@ function WineRankingPage() {
 export default WineRankingPage
 
 const WineContainer = styled.div`
+   background: url(${WineBackground}) no-repeat center center fixed;
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
    display: flex;
    justify-content: center;
    flex-wrap: wrap;

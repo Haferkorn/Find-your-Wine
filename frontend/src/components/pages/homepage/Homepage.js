@@ -50,7 +50,6 @@ const Wrapper = styled.div`
 `
 
 const Card=styled.div`
- 
   margin:80px auto;
   border: 1px solid #3A3A3A;
   border-radius: 10px;

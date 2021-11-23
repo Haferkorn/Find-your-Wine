@@ -82,7 +82,7 @@ const MainHeading = styled.h2`
 `
 const StepWrapper = styled.section`
    margin: 10px;
-   min-width: 200px;
+   min-width: 300px;
    
    
 `
