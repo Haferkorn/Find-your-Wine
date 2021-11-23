@@ -19,7 +19,7 @@ function Homepage() {
                autoplay
                loop
                src={WineAnimation}
-               style={{ height: "200px", width: "300px" }}>
+               style={{ height: "200px", width: "300px" ,padding:"0px 50px 0px 50px"}}>
                <Controls
                   visible={false}
                   buttons={["play", "repeat", "frame", "debug"]}
@@ -42,10 +42,13 @@ const Heading = styled.h1`
    margin: 50px;
 `
 
+
 const Emphasis = styled.em`
    text-decoration: underline;
 `
-export const AnimationWrapper = styled.div``
+export const AnimationWrapper = styled.div`
+
+`
 
 const ButtonWrapper = styled.div`
    display: flex;
