@@ -71,6 +71,6 @@ function App() {
 export default App
 
 const PageLayout = styled.div`
-   width: 100%;
-   padding-bottom: 200px;
+   height: 100vh;
+   width: 100vw;
 `

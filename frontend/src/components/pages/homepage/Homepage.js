@@ -47,7 +47,6 @@ const Emphasis = styled.em`
    text-decoration: underline;
 `
 export const AnimationWrapper = styled.div`
-
 `
 
 const ButtonWrapper = styled.div`
