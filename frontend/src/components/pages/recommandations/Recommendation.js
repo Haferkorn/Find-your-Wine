@@ -69,7 +69,7 @@ const RecommendationCard = styled.div`
    border-radius: 10px;
    max-width: 300px;
    font-family: "Montserrat", sans-serif;
-   box-shadow: 5px 5px 10px 1px #8b2635;
+   box-shadow: 5px 5px 10px 1px #737070;
 `
 const Name = styled.h2`
    font-family: "Tangerine", cursive;

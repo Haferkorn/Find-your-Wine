@@ -2,6 +2,7 @@ import styled from "styled-components/macro"
 import { Player, Controls } from "@lottiefiles/react-lottie-player"
 import WineAnimation from "./wine_animation.json"
 import { useHistory } from "react-router"
+import HomeWineImage from "./home_wine.png"
 
 function Homepage() {
    const history = useHistory()
@@ -11,6 +12,7 @@ function Homepage() {
 
    return (
       <Wrapper>
+          <Card>
          <Heading>
             Let's find <Emphasis>your</Emphasis> perfect Wine
          </Heading>
@@ -29,17 +31,40 @@ function Homepage() {
                <StartButton onClick={handleClick}>Start</StartButton>
             </ButtonWrapper>
          </AnimationWrapper>
+          </Card>
       </Wrapper>
    )
 }
 export default Homepage
 
-const Wrapper = styled.div``
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  background: url(${HomeWineImage}) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+`
+
+const Card=styled.div`
+  margin-top: 30px;
+  border: 1px solid #3A3A3A;
+  border-radius: 10px;
+  width: 300px;
+  height: fit-content;
+  background-color: #D1D1D1;
+  opacity: 90%;
+    
+`
 const Heading = styled.h1`
    text-align: center;
    font-family: "Montserrat", sans-serif;
    font-size: 20px;
-   margin: 50px;
+  margin: 0;
+  padding-top: 30px;
 `
 
 
@@ -52,7 +77,7 @@ export const AnimationWrapper = styled.div`
 const ButtonWrapper = styled.div`
    display: flex;
    justify-content: center;
-   margin-top: 30px;
+   margin-top:30px;
 `
 const StartButton = styled.button`
    transition: all 0.2s ease-in-out;
