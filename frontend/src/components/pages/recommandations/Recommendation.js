@@ -2,6 +2,7 @@ import styled from "styled-components/macro"
 import { BsInfoCircle } from "react-icons/bs"
 import { useState } from "react"
 import { useHistory } from "react-router-dom"
+import { GiKnifeFork } from "react-icons/gi";
 
 function Recommendation({
    name,
@@ -38,6 +39,7 @@ function Recommendation({
    return (
       <RecommendationCard>
          <Name>{name}</Name>
+         <hr/>
          <p>
             Matches with <b>{Math.round((match / 3) * 100)}%</b> of your
             criteria
@@ -63,6 +65,8 @@ function Recommendation({
 export default Recommendation
 
 const RecommendationCard = styled.div`
+   background-color: #BBAFA3;
+   opacity: 90%;
    padding: 20px;
    margin: 20px;
    border: 1px solid #a38b7a;
@@ -70,6 +74,7 @@ const RecommendationCard = styled.div`
    max-width: 300px;
    font-family: "Montserrat", sans-serif;
    box-shadow: 5px 5px 10px 1px #737070;
+   font-weight: bold;
 `
 const Name = styled.h2`
    font-family: "Tangerine", cursive;
@@ -78,8 +83,8 @@ const Name = styled.h2`
 
 export const Button = styled.button`
    transition: all 0.2s ease-in-out;
-   margin-bottom: 40px;
    margin-top: 10px;
+   margin-bottom: 10px;
    background: #e6e1d6;
    border-radius: 6px;
    border: 1px solid #0d1b2a;
@@ -99,5 +104,5 @@ export const Button = styled.button`
 `
 
 const ListItem = styled.li`
-   list-style: circle outside;
+   list-style: none;
 `

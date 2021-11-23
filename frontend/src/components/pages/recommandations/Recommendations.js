@@ -1,11 +1,12 @@
 import Recommendation from "./Recommendation"
 import styled from "styled-components/macro"
 import NoMatch from "./NoMatch"
+import WineBackground from "./recommendations.png"
 
 function Recommendations({ recommendations }) {
    return (
-      <div>
-         <Heading>Your Recommendations:</Heading>
+      <BackgroundWrapper>
+
          <RecommendationContainer>
             {recommendations.length === 0 ? (
                <NoMatch />
@@ -28,12 +29,23 @@ function Recommendations({ recommendations }) {
                </CardContainer>
             )}
          </RecommendationContainer>
-      </div>
+      </BackgroundWrapper>
    )
 }
 export default Recommendations
 
-const RecommendationContainer = styled.div``
+const BackgroundWrapper=styled.div`
+  background: url(${WineBackground}) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+`
+
+const RecommendationContainer = styled.div`
+
+
+`
 const CardContainer = styled.div`
    display: flex;
    flex-wrap: wrap;
@@ -43,4 +55,8 @@ const CardContainer = styled.div`
 export const Heading = styled.h2`
    font-family: "Montserrat", sans-serif;
    text-align: center;
+  margin: 0;
+  padding: 20px;
+  font-weight: bold;
+  color: white;
 `
