@@ -12,7 +12,7 @@ function Footer() {
 export default Footer
 
 const FooterWrapper = styled.div`
-   position: fixed;
+   position: relative;
    bottom: 0;
    width: 100%;
    height: 100px;
