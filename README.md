@@ -27,3 +27,18 @@
   
   </ol>
 </details>
+
+<!-- ABOUT THE PROJECT -->
+## About The Project
+
+[![Product Name Screen Shot][product-screenshot]](https://findyourwine.herokuapp.com)
+
+Who doesn't know it - you're looking for the right wine for a balmy summer evening, a cozy dinner or a special occasion. But then you are completely overwhelmed by the diversity of the wine selection.
+Find your Wine helps you find the perfect wine.
+
+Here's how:
+* You fill out a form describing some aspects of your perfect wine. 
+* Based on your information, the algorithm matches your information with the vines in our database and determines the perfect wine variety for you.
+* If you have a user account, you can also get the top 5 wine bottles from the database
+
+
