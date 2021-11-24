@@ -3,9 +3,9 @@ import { useEffect, useState } from "react"
 import { useLocation } from "react-router"
 import { getWineBottles } from "../../../utils/apiService/WineAPIService"
 import styled from "styled-components/macro"
-import NoMatch from "../recommandations/NoMatch"
+import NoMatch from "../../../utils/NoMatch"
 import WineBackground from "./WineBackground.png"
-import Loader from "react-loader-spinner";
+import Loading from "../../../utils/Loading";
 
 function WineRankingPage() {
    const [wineConfiguration, setWineConfiguration] = useState({})
@@ -47,7 +47,7 @@ function WineRankingPage() {
                )}
             </div>
          }</div>:
-             <Loader type="ThreeDots" color="#8b2635" height={80} width={80} />
+             <Loading />
              }
       </WineContainer>
    )

@@ -1,10 +1,10 @@
 import Recommendation from "./Recommendation"
 import styled from "styled-components/macro"
-import NoMatch from "./NoMatch"
+import NoMatch from "../../../utils/NoMatch"
 import WineBackground from "./recommendations.png"
 import {getRecommendations} from "../../../utils/apiService/WineAPIService";
 import {useEffect, useState} from "react";
-import Loader from "react-loader-spinner";
+import Loading from "../../../utils/Loading";
 
 function Recommendations({ wineConfiguration }) {
 
@@ -44,7 +44,7 @@ function Recommendations({ wineConfiguration }) {
                   ))}
                </CardContainer>
             )} </div>:
-                 <Loader type="ThreeDots" color="#8b2635" height={80} width={80} />
+                 <Loading/>
              }
          </RecommendationContainer>
       </BackgroundWrapper>
