@@ -8,7 +8,6 @@ import RecommendationForm from "./components/pages/recommandationForm/Recommenda
 import Footer from "./components/footer/Footer"
 import Recommendations from "./components/pages/recommandations/Recommendations"
 import { useState } from "react"
-import { getRecommendations } from "./utils/apiService/WineAPIService"
 import SignUpPage from "./components/pages/signUp/SignUpPage"
 import WineRankingPage from "./components/pages/wineRanking/WineRankingPage"
 import PrivateRoute from "./utils/PrivateRoute"
@@ -21,15 +20,12 @@ function App() {
       alcohol: "",
       taste: "",
    })
-   const [recommendations, setRecommendations] = useState([])
+
 
    const history = useHistory()
 
-   const handleSubmit = () => {
-      getRecommendations(wineConfiguration).then((result) => {
-         setRecommendations(result)
-      })
-      history.push("/recommendations")
+  const handleSubmit=()=> {
+         history.push("/recommendations")
    }
 
    const handleDataInput = (name, value) => {
@@ -57,7 +53,7 @@ function App() {
                />
             </Route>
             <Route path="/recommendations">
-               <Recommendations recommendations={recommendations} />
+               <Recommendations wineConfiguration={wineConfiguration}/>
             </Route>
             <PrivateRoute path="/wineRanking">
                <WineRankingPage />
