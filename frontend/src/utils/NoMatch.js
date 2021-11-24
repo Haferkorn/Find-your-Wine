@@ -1,12 +1,13 @@
-import { Heading } from "./Recommendations"
+import { Heading } from "../components/pages/recommandations/Recommendations"
 import NoMatch_Animation from "./NoMatch_Animation.json"
 import { Controls, Player } from "@lottiefiles/react-lottie-player"
 
-import { AnimationWrapper } from "../homepage/Homepage"
+import { AnimationWrapper } from "../components/pages/homepage/Homepage"
+import styled from "styled-components/macro";
 
 function NoMatch() {
    return (
-      <div>
+      <Wrapper>
          <Heading>Unfortunately we could not find a matching wine </Heading>
          <AnimationWrapper>
             <Player
@@ -20,7 +21,12 @@ function NoMatch() {
                />
             </Player>
          </AnimationWrapper>
-      </div>
+      </Wrapper>
    )
 }
 export default NoMatch
+
+const Wrapper=styled.div`
+height: 100vh;
+
+`

@@ -13,7 +13,7 @@ function AuthProvider({ children }) {
          .post("/auth/login", credentials)
          .then((response) => response.data)
          .then(setToken)
-         .then(() => history.push("/"))
+         .then(() => history.goBack())
          .catch((error) => console.error(error.message))
    }
 

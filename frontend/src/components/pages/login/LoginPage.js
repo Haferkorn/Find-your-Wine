@@ -1,5 +1,5 @@
 import { useContext, useState } from "react"
-import { AuthContext } from "../../../utils/apiService/AuthProvider"
+import { AuthContext } from "../../../utils/AuthProvider"
 import styled from "styled-components/macro"
 import { useHistory } from "react-router-dom"
 import {

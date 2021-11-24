@@ -40,8 +40,10 @@ const WineCardContainer = styled.div`
    border-radius: 10px;
    max-width: 300px;
    font-family: "Montserrat", sans-serif;
-   box-shadow: 5px 5px 10px 1px #8b2635;
+   box-shadow: 5px 5px 10px 1px #737070;
    font-weight: bold;
+  background-color: #BBAFA3;
+  opacity: 90%;
 `
 
 const Title = styled.h2`
