@@ -31,6 +31,7 @@ function Recommendations({ wineConfiguration }) {
                   {recommendations.map((wine) => (
                      <div key={wine.name}>
                         <Recommendation
+                            wineconfiguration={wineConfiguration}
                            name={wine.name}
                            occasion={wine.occasion}
                            wineStyle={wine.wineStyle}
