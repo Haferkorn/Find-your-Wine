@@ -1,6 +1,6 @@
 # Find-your-Wine
 
- <img src="frontend/src/components/header/logo.png" alt="Logo" width="200" height="200">
+ <img src="frontend/src/components/header/logo.png" alt="Logo" width="300" height="200">
 
 <!-- TABLE OF CONTENTS -->
 <details>
