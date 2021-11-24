@@ -44,12 +44,19 @@ Here's how:
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+This section is a list of the major frameworks/libraries used in the project.
 
 * [React.js](https://reactjs.org/)
 * [Java 17](https://openjdk.java.net/projects/jdk/17/)
 * [Spring Boot](https://spring.io/projects/spring-boot)
+* [Spring Data](https://spring.io/projects/spring-data)
+* [Spring Security](https://spring.io/projects/spring-security)
+* [MongoDB](https://www.mongodb.com)
+* [Docker](https://www.docker.com)
 
+Data: 
+* [Python](https://www.python.org)
+* [Pandas](https://pandas.pydata.org)
 
 
 <!-- GETTING STARTED -->
