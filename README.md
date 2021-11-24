@@ -91,3 +91,22 @@ Don't forget to give the project a star! Thanks again!
 3. Commit your Changes (`git commit -m 'Add some NewFeature'`)
 4. Push to the Branch (`git push origin feature/NewFeature`)
 5. Open a Pull Request
+
+
+<!-- CONTACT -->
+## Contact
+
+Anette Haferkorn - Twitter: [@AnetteHaferkorn](https://mobile.twitter.com/AnetteHaferkorn) - LinkedIn: [@AnetteHaferkorn](https://www.linkedin.com/in/anette-haferkorn/)- anette.haferkorn@gmail.com
+
+
+
+<!-- ACKNOWLEDGMENTS -->
+## Acknowledgments
+
+Helpful Resources
+
+* [Wine Embeddings and a Wine Recommender](https://towardsdatascience.com/robosomm-chapter-3-wine-embeddings-and-a-wine-recommender-9fc678f1041e)
+* [Wine Reviews](https://www.kaggle.com/zynicide/wine-reviews)
+* [Font Awesome](https://fontawesome.com)
+* [React Icons](https://react-icons.github.io/react-icons/search)
+
