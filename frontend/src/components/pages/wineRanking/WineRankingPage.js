@@ -5,9 +5,12 @@ import { getWineBottles } from "../../../utils/apiService/WineAPIService"
 import styled from "styled-components/macro"
 import NoMatch from "../recommandations/NoMatch"
 import WineBackground from "./WineBackground.png"
+import Loader from "react-loader-spinner";
 
 function WineRankingPage() {
    const [wineConfiguration, setWineConfiguration] = useState({})
+   const [rankedWines, setRankedWines] = useState(undefined)
+   const[requestStatus, setRequestStatus]=useState("initial")
 
    const location = useLocation()
 
@@ -21,28 +24,31 @@ function WineRankingPage() {
       // eslint-disable-next-line
    }, [])
 
+
    useEffect(() => {
      getWineBottles(filterQuery).then((result) => {
-         setRankedWines(result)
+           setRankedWines(result)
+           setRequestStatus("done")
       })
       // eslint-disable-next-line
    }, [wineConfiguration])
 
-   const [rankedWines, setRankedWines] = useState([])
-
    return (
       <WineContainer>
-         {rankedWines && rankedWines.length === 0 ? (
+         {requestStatus==="done" ? <div>
+         {rankedWines.length===0 ?
             <NoMatch />
-         ) : (
+          :
             <div>
-               {rankedWines.map((wine) => (
+               {rankedWines.map((wine) =>
                   <div key={wine.id}>
                      <WineCard wineData={wine} />
                   </div>
-               ))}
+               )}
             </div>
-         )}
+         }</div>:
+             <Loader type="ThreeDots" color="#8b2635" height={80} width={80} />
+             }
       </WineContainer>
    )
 }

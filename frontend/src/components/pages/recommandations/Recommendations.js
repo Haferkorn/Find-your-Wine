@@ -2,12 +2,28 @@ import Recommendation from "./Recommendation"
 import styled from "styled-components/macro"
 import NoMatch from "./NoMatch"
 import WineBackground from "./recommendations.png"
+import {getRecommendations} from "../../../utils/apiService/WineAPIService";
+import {useEffect, useState} from "react";
+import Loader from "react-loader-spinner";
 
-function Recommendations({ recommendations }) {
+function Recommendations({ wineConfiguration }) {
+
+    const [recommendations, setRecommendations] = useState([])
+    const[requestStatus, setRequestStatus]=useState("initial")
+
+    useEffect(() => {
+        getRecommendations(wineConfiguration).then((result) => {
+            setRecommendations(result)
+            setRequestStatus("done")
+        })
+        // eslint-disable-next-line
+    }, [wineConfiguration])
+
+
    return (
       <BackgroundWrapper>
-
          <RecommendationContainer>
+             {requestStatus==="done"?<div>
             {recommendations.length === 0 ? (
                <NoMatch />
             ) : (
@@ -27,7 +43,9 @@ function Recommendations({ recommendations }) {
                      </div>
                   ))}
                </CardContainer>
-            )}
+            )} </div>:
+                 <Loader type="ThreeDots" color="#8b2635" height={80} width={80} />
+             }
          </RecommendationContainer>
       </BackgroundWrapper>
    )

@@ -2,7 +2,6 @@ import styled from "styled-components/macro"
 import { BsInfoCircle } from "react-icons/bs"
 import { useState } from "react"
 import { useHistory } from "react-router-dom"
-import { GiKnifeFork } from "react-icons/gi";
 
 function Recommendation({
    name,
