@@ -107,6 +107,5 @@ Helpful Resources
 
 * [Wine Embeddings and a Wine Recommender](https://towardsdatascience.com/robosomm-chapter-3-wine-embeddings-and-a-wine-recommender-9fc678f1041e)
 * [Wine Reviews](https://www.kaggle.com/zynicide/wine-reviews)
-* [Font Awesome](https://fontawesome.com)
-* [React Icons](https://react-icons.github.io/react-icons/search)
+
 
