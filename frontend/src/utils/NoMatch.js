@@ -1,8 +1,8 @@
-import { Heading } from "./Recommendations"
+import { Heading } from "../components/pages/recommandations/Recommendations"
 import NoMatch_Animation from "./NoMatch_Animation.json"
 import { Controls, Player } from "@lottiefiles/react-lottie-player"
 
-import { AnimationWrapper } from "../homepage/Homepage"
+import { AnimationWrapper } from "../components/pages/homepage/Homepage"
 import styled from "styled-components/macro";
 
 function NoMatch() {
