@@ -8,13 +8,14 @@ import Loading from "../../../utils/Loading";
 
 function Recommendations({ wineConfiguration }) {
 
-    const [recommendations, setRecommendations] = useState([])
+    const [recommendations, setRecommendations] = useState(undefined)
     const[requestStatus, setRequestStatus]=useState("initial")
 
     useEffect(() => {
         getRecommendations(wineConfiguration).then((result) => {
             setRecommendations(result)
             setRequestStatus("done")
+
         })
         // eslint-disable-next-line
     }, [wineConfiguration])
@@ -23,6 +24,8 @@ function Recommendations({ wineConfiguration }) {
    return (
       <BackgroundWrapper>
          <RecommendationContainer>
+             {console.log(recommendations)}
+             {console.log(requestStatus)}
              {requestStatus==="done"?<div>
             {recommendations.length === 0 ? (
                <NoMatch />

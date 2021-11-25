@@ -9,7 +9,7 @@ import Loading from "../../../utils/Loading";
 
 function WineRankingPage() {
    const [wineConfiguration, setWineConfiguration] = useState({})
-   const [rankedWines, setRankedWines] = useState(undefined)
+   const [rankedWines, setRankedWines] = useState("inital")
    const[requestStatus, setRequestStatus]=useState("initial")
 
    const location = useLocation()
@@ -35,6 +35,8 @@ function WineRankingPage() {
 
    return (
       <WineContainer>
+          {console.log(rankedWines)}
+          {console.log(requestStatus)}
          {requestStatus==="done" ? <div>
          {rankedWines.length===0 ?
             <NoMatch />
